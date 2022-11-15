@@ -2,8 +2,8 @@
 
 # Declara los personajes usados en el juego como en el ejemplo:
 
-define e = Character("Eileen")
-
+define b = Character("Bestie")
+define r = Character("La puta de su madre")
 
 # El juego comienza aquí.
 
@@ -13,7 +13,7 @@ label start:
     # defecto. Es posible añadir un archivo en el directorio 'images' con el
     # nombre "bg room.png" or "bg room.jpg" para que se muestre aquí.
 
-    scene bg room
+    scene bg train
 
     # Muestra un personaje: Se usa un marcador de posición. Es posible
     # reemplazarlo añadiendo un archivo llamado "eileen happy.png" al directorio
@@ -23,9 +23,13 @@ label start:
 
     # Presenta las líneas del diálogo.
 
-    e "Has creado un nuevo juego Ren'Py."
+    b "Y la puta de tu madre que tal mea Juan"
 
-    e "Añade una historia, imágenes y música, ¡y puedes presentarlo al mundo!"
+    hide bestie normal
+
+    show randomgirl delighted
+
+    r "Bastante bien gracias por preguntar rey"
 
     # Finaliza el juego:
 
