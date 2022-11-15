@@ -19,7 +19,7 @@ label start:
     # reemplazarlo añadiendo un archivo llamado "eileen happy.png" al directorio
     # 'images'.
 
-    show eileen happy
+    show bestie normal
 
     # Presenta las líneas del diálogo.
 
