@@ -3,13 +3,15 @@
 # Declara los personajes usados en el juego como en el ejemplo:
 
 define b = Character("Lucas")
-define y = Character("Yo")
+define y = Character("[name]")
 define h = Character("Alicia")
 define g = Character("Alba")
 define p = Character("Gabriel")
 define g = Character("Alejandro")
 define t = Character("Todos")
-
+transform left:
+    xalign 0.0
+    yalign 0.35
 # El juego comienza aquí.
 
 label start:
@@ -17,6 +19,30 @@ label start:
     # Muestra una imagen de fondo: Aquí se usa un marcador de posición por
     # defecto. Es posible añadir un archivo en el directorio 'images' con el
     # nombre "bg room.png" or "bg room.jpg" para que se muestre aquí.
+
+
+    #DEBUGGING AAAAA QUITAR ESTAS LINEAS
+    $ genero = "o"
+    $ pronombre = "el"
+    $ name = "Marica Chonda"
+    jump entrarDone
+
+    #SELECCION PRONOMBRES#
+    scene bg black
+    "Antes de empezar el juego, queremos que formes parte del juego, y nos gustaría saber si preferirías que te llamaran en femenino o en masculino"
+    menu:
+        "Masculino (Él)":
+            $ genero = "o"
+            $ pronombre = "el"
+        "Femeninio(Ella)":
+            $ genero = "a"
+            $ pronombre = "ella"
+
+    $ name = renpy.input("¿Y cual es tu nombre?")
+    
+    #--------------------------
+
+
 
     scene bg train tunnel
 
@@ -101,36 +127,44 @@ label start:
     "(Te chocas con alguien y te das un golpe)"
     menu:
         "Ten más cuidado la proxima vez":
-            jump cuidadoHappy
-        "Pedir perdón por chocarte":
-            jump perdonHappy
-    label cuidadoHappy:
+            jump cuidadoAlicia
+        "(Pedir perdón por chocarte)":
+            jump perdonAlicia
+    label cuidadoAlicia:
+    show alicia sad
     h "¡Ay jo lo siento! Perdona, no te había visto."
     h "¿Te he hecho daño? Ay lo siento mucho joe, no era mi intención… Toma"
-    "Recibiste Tirita de Alicia."
+    hide alicia sad
+    show alicia smile1
+    "(Recibiste Tirita de Alicia)"
     b "Calma Alicia jajaja, solo ha sido un golpe"
-    jump conocidoHappy
+    jump conocidoAlicia
 
-    label perdonHappy:
+    label perdonAlicia:
+    show alicia smile1
     h "Ay no seas boba! Soy yo que estoy siempre en los mundos de yupi y nunca me entero de nada! Toma, como un simbolo de paz jajaja"
+    hide alicia smile1
+    show alicia smile2
     "Recibiste Tirita de Alicia."
     b "Alicia no tenemos tiempo para tus ñoñerias."
-    jump conocidoHappy
+    jump conocidoAlicia
 
-    label conocidoHappy:
-    b "Esta es XXX, era mi mejor amiga de mi antiguo instituto, y parece que ahora va a ser nuestra compi de clase. ¿NO ES GENIAL?"
+    label conocidoAlicia:
+    show lucas smile1 at left
+    
+    b "Esta es [name], era mi mejor amig[genero] de mi antiguo instituto, y parece que ahora va a ser nuestr[genero] compi de clase. ¿NO ES GENIAL?"
     h "Ay genial! Más gente en el grupo! Estoy deseando conocerte. Pijamada este finde en mi casa?"
     b "De una! Luego en el recreo le presento al resto y les digo lo de la pijamada!"
-    b "XXX, cuando se acabe el recreo te presento a mi grupito, ya les he avisado por whatsthematter que tenemos una nueva personita jeje."
+    b "[name], cuando se acabe el recreo te presento a mi grupito, ya les he avisado por whatsthematter que tenemos una nueva personita jeje."
     scene bg black
     "(Termina la clase y llega al recreo)"
     scene bg club
     "¿Esos no son Lucas y Alicia?"
     "Parece que están con otras 3 personas, voy a saludar"
-    b "¡XXX Ven aquí, te voy a presentar a mis amiguis!"
+    b "¡[name] Ven aquí, te voy a presentar a mis amiguis!"
     b "A Alicia ya la conociste antes, es la chica que nos da la serotonina diaria."
     b "Es imposible conseguir enfadarla, y mira que lo hemos intentado jajajajaja"
-    h "Ay tampoco es así… que XXX se va a pensar que estoy ida o algo jajaja"
+    h "Ay tampoco es así… que [name] se va a pensar que estoy ida o algo jajaja"
     t "Jajajaja"
     b "Este es Alejandro. No te dejes llevar por las apariencias, es un gymbro con todas las letras pero tiene buen corazón"
     b "Y siempre nos ayuda cueste lo que cueste, ¿a que sí corazón de melón?"
@@ -139,12 +173,12 @@ label start:
     b "Enfin, a mi izquierda tenemos a nuestro querido Gabriel."
     b "Tiene mejor melena que Alicia con la mejor weekly routine."
     b "Lavarse el pelo con la lluvia"
-    p "Pero bueno quieres que XXX sea nuestra amiga o estás intentando que no se acerque?"
+    p "Pero bueno quieres que [name] sea nuestra amiga o estás intentando que no se acerque?"
     p "No le escuches, llamame Iluminao, adoro los animalitos y el campito aunque estemos en una ciudad..."
     menu:
         "¡Yo también! Que guay":
             jump veryFriendlyGabriel
-        "*Encantad@, soy XXX":
+        "*Encantad@, soy [name]":
             jump friendlyGabriel
 
     label veryFriendlyGabriel:
