@@ -9,12 +9,26 @@ define g = Character("Alba")
 define p = Character("Gabriel")
 define g = Character("Alejandro")
 define t = Character("Todos")
-transform left:
+transform superLeft:
     xalign 0.0
-    yalign 0.35
+    yalign 0.45
+transform superRight:
+    xalign 0.9
+    yalign 0.45
+
+transform left:
+    xalign 0.2
+    yalign 0.45
 transform right:
     xalign 0.8
-    yalign 0.35
+    yalign 0.45
+transform centerLeft:
+    xalign 0.4
+    yalign 0.45
+transform centerRight:
+    xalign 0.6
+    yalign 0.45
+
 # El juego comienza aquí.
 
 label start:
@@ -119,6 +133,7 @@ label start:
     scene bg black
     jump entrarDone
 
+    #CONOCE A ALICIA
     label entrarDone:
 
     "*Ding, dong, ding, dong*"
@@ -141,6 +156,7 @@ label start:
     show alicia smile1
     "(Recibiste Tirita de Alicia)"
     b "Calma Alicia jajaja, solo ha sido un golpe"
+    hide alicia smile2
     jump conocidoAlicia
 
     label perdonAlicia:
@@ -150,53 +166,80 @@ label start:
     show alicia smile2
     "Recibiste Tirita de Alicia."
     b "Alicia no tenemos tiempo para tus ñoñerias."
+    hide alicia smile2
     jump conocidoAlicia
 
     label conocidoAlicia:
-    show lucas smile1 at right
+    show lucas smile1 at left
+    show alicia smile1 at right
     
     b "Esta es [name], era mi mejor amig[genero] de mi antiguo instituto, y parece que ahora va a ser nuestr[genero] compi de clase. ¿NO ES GENIAL?"
+    show alicia laugh at right
     h "Ay genial! Más gente en el grupo! Estoy deseando conocerte. Pijamada este finde en mi casa?"
+    show lucas smile3 at left
     b "De una! Luego en el recreo le presento al resto y les digo lo de la pijamada!"
+    hide alicia laugh
+    show lucas smile1
     b "[name], cuando se acabe el recreo te presento a mi grupito, ya les he avisado por whatsthematter que tenemos una nueva personita jeje."
     scene bg black
     "(Termina la clase y llega al recreo)"
+
+    #RECREO
     scene bg club
     "¿Esos no son Lucas y Alicia?"
-    "Parece que están con otras 3 personas, voy a saludar"
-    b "¡[name] Ven aquí, te voy a presentar a mis amiguis!"
+    "Están con 3 personas más"
+    show lucas smile2 at left
+    b "¡[name] ven aquí, te voy a presentar a mis amiguis!"
+    show alicia smile1 at centerLeft
     b "A Alicia ya la conociste antes, es la chica que nos da la serotonina diaria."
-    b "Es imposible conseguir enfadarla, y mira que lo hemos intentado jajajajaja"
-    h "Ay tampoco es así… que [name] se va a pensar que estoy ida o algo jajaja"
+    b "Es imposible conseguir enfadarla, y mira que lo hemos intentado jajaja"
+    show alicia smile2 at centerLeft
+    h "Ay tampoco es así… que [name] se va a pensar que estoy ida o algo "
+    show lucas laugh at left
+    show alejandro laugh
+    show alba laugh at centerRight
+    show gabriel laugh at right
     t "Jajajaja"
     b "Este es Alejandro. No te dejes llevar por las apariencias, es un gymbro con todas las letras pero tiene buen corazón"
+    show alejandro smirk
     b "Y siempre nos ayuda cueste lo que cueste, ¿a que sí corazón de melón?"
+    show alejandro smile2
     g "Lucas no intentes convencerme para ir a jugar después de clase que hoy estoy molido."
+    show lucas sad at left
     b "Joeee!!"
+    show lucas smile2 at left
     b "Enfin, a mi izquierda tenemos a nuestro querido Gabriel."
+    show gabriel smile3 at right
     b "Tiene mejor melena que Alicia con la mejor weekly routine."
     b "Lavarse el pelo con la lluvia"
+    show gabriel angry2 at right
     p "Pero bueno quieres que [name] sea nuestra amiga o estás intentando que no se acerque?"
-    p "No le escuches, llamame Iluminao, adoro los animalitos y el campito aunque estemos en una ciudad..."
+    show gabriel smile2 at right
+    p "No le escuches, llamame Gabri, aunque todos me llamen Iluminao, adoro los animalitos y el campito aunque estemos en una ciudad..."
     menu:
         "¡Yo también! Que guay":
             jump veryFriendlyGabriel
-        "*Encantad@, soy [name]":
+        "*Encantad[genero], soy [name]":
             jump friendlyGabriel
 
     label veryFriendlyGabriel:
-    "SIN IMPLEMENTAR"
+    p "¿Si? Podemos quedar un día y te enseño mi mascota. ¡Es un Border Coly precioso!"
+    b "Pisa el freno que falta una por presentar, luego ya haced lo que querais tortolitos"
+    p "Ups, perdón jajaja"
     jump conocidoGabriel
 
     label friendlyGabriel:
-    "SIN IMPLEMENTAR"
+    p "[name], que nombre más bonito. ¿Y por qué te mudaste a.."
+    b "las preguntas para más tarde tortolitos que me falta una por presentar"
+    p "vale mamá"
     jump conocidoGabriel
 
     label conocidoGabriel:
-
-    b "Y por último pero no menos importante, nuestra incomprendida de la vida, Alba!"
+    b "En fin, por donde iba..."
+    b "Por último pero no menos importante, nuestra incomprendida de la vida, ¡Alba!"
+    show alba annoyed
     g "Que sea más tímida no significa que sea una incomprendida..."
-    b "Luego se suelta más, solo dale algo de tiempo jajaj. En fín, pijamada este finde todos juntos? Alicia pone casa!"
+    b "Luego se suelta más, solo dale algo de tiempo. Hablando de lo que comentaba antes, ¿pijamada este finde todos juntos? ¡Alicia pone casa!"
     menu:
         "No se yo...":
             jump noPijamada
@@ -204,12 +247,13 @@ label start:
             jump siPijamada
     
     label noPijamada:
-    g "Venga, parecemos majaras pero te lo vas a pasar genial en la pijamada."
+    show alejandro smirk
+    g "Venga anímate, parecemos majaras pero te lo vas a pasar genial en la pijamada."
     g "Alicia prepara una limonada sin azucar y tiene un gatete"
     jump pijamadaDecidido
 
     label siPijamada:
-    h "Yey! Voy a ir diciendole a mi madre que compre las cosas para hacer una limonada"
+    h "¡Yey! Voy a ir diciendole a mi madre que compre las cosas para hacer una limonada"
     g "¡¡¡Recuerda que no tenga azucar!!!"
     b "Que sí gymbro, su madre ya sabe que tiene que hacer una limonada sosa como siempre jajaja"
     jump pijamadaDecidido
