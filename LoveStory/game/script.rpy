@@ -12,6 +12,9 @@ define t = Character("Todos")
 transform left:
     xalign 0.0
     yalign 0.35
+transform right:
+    xalign 0.8
+    yalign 0.35
 # El juego comienza aquí.
 
 label start:
@@ -150,7 +153,7 @@ label start:
     jump conocidoAlicia
 
     label conocidoAlicia:
-    show lucas smile1 at left
+    show lucas smile1 at right
     
     b "Esta es [name], era mi mejor amig[genero] de mi antiguo instituto, y parece que ahora va a ser nuestr[genero] compi de clase. ¿NO ES GENIAL?"
     h "Ay genial! Más gente en el grupo! Estoy deseando conocerte. Pijamada este finde en mi casa?"
