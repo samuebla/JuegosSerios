@@ -13,20 +13,22 @@ transform superLeft:
     xalign 0.0
     yalign 0.45
 transform superRight:
-    xalign 0.9
+    xalign 1.0
     yalign 0.45
-
+transform center:
+    xalign 0.5
+    yalign 0.45
 transform left:
-    xalign 0.2
+    xalign 0.15
     yalign 0.45
 transform right:
-    xalign 0.8
+    xalign 0.9
     yalign 0.45
 transform centerLeft:
-    xalign 0.4
+    xalign 0.25
     yalign 0.45
 transform centerRight:
-    xalign 0.6
+    xalign 0.75
     yalign 0.45
 
 # El juego comienza aquí.
@@ -149,21 +151,21 @@ label start:
         "(Pedir perdón por chocarte)":
             jump perdonAlicia
     label cuidadoAlicia:
-    show alicia sad
+    show alicia sad at center
     h "¡Ay jo lo siento! Perdona, no te había visto."
     h "¿Te he hecho daño? Ay lo siento mucho joe, no era mi intención… Toma"
     hide alicia sad
-    show alicia smile1
+    show alicia smile1 at center
     "(Recibiste Tirita de Alicia)"
     b "Calma Alicia jajaja, solo ha sido un golpe"
     hide alicia smile2
     jump conocidoAlicia
 
     label perdonAlicia:
-    show alicia smile1
-    h "Ay no seas boba! Soy yo que estoy siempre en los mundos de yupi y nunca me entero de nada! Toma, como un simbolo de paz jajaja"
+    show alicia smile1 at center
+    h "¡Ay no seas boba! Soy yo que estoy siempre en los mundos de yupi y nunca me entero de nada. Toma, como un simbolo de paz jajaja"
     hide alicia smile1
-    show alicia smile2
+    show alicia smile2 at center
     "Recibiste Tirita de Alicia."
     b "Alicia no tenemos tiempo para tus ñoñerias."
     hide alicia smile2
@@ -175,9 +177,9 @@ label start:
     
     b "Esta es [name], era mi mejor amig[genero] de mi antiguo instituto, y parece que ahora va a ser nuestr[genero] compi de clase. ¿NO ES GENIAL?"
     show alicia laugh at right
-    h "Ay genial! Más gente en el grupo! Estoy deseando conocerte. Pijamada este finde en mi casa?"
+    h "¡Ay genial! Más gente en el grupo! Estoy deseando conocerte. ¿Pijamada este finde en mi casa?"
     show lucas smile3 at left
-    b "De una! Luego en el recreo le presento al resto y les digo lo de la pijamada!"
+    b "¡De una! Luego en el recreo le presento al resto y les digo lo de la pijamada"
     hide alicia laugh
     show lucas smile1
     b "[name], cuando se acabe el recreo te presento a mi grupito, ya les he avisado por whatsthematter que tenemos una nueva personita jeje."
@@ -188,33 +190,33 @@ label start:
     scene bg club
     "¿Esos no son Lucas y Alicia?"
     "Están con 3 personas más"
-    show lucas smile2 at left
+    show lucas smile2 at superLeft
     b "¡[name] ven aquí, te voy a presentar a mis amiguis!"
     show alicia smile1 at centerLeft
     b "A Alicia ya la conociste antes, es la chica que nos da la serotonina diaria."
     b "Es imposible conseguir enfadarla, y mira que lo hemos intentado jajaja"
     show alicia smile2 at centerLeft
     h "Ay tampoco es así… que [name] se va a pensar que estoy ida o algo "
-    show lucas laugh at left
-    show alejandro laugh
+    show lucas laugh at superLeft
+    show alejandro laugh at center
     show alba laugh at centerRight
-    show gabriel laugh at right
+    show gabriel laugh at superRight
     t "Jajajaja"
     b "Este es Alejandro. No te dejes llevar por las apariencias, es un gymbro con todas las letras pero tiene buen corazón"
-    show alejandro smirk
+    show alejandro smirk at center
     b "Y siempre nos ayuda cueste lo que cueste, ¿a que sí corazón de melón?"
-    show alejandro smile2
+    show alejandro smile2 at center
     g "Lucas no intentes convencerme para ir a jugar después de clase que hoy estoy molido."
-    show lucas sad at left
-    b "Joeee!!"
-    show lucas smile2 at left
-    b "Enfin, a mi izquierda tenemos a nuestro querido Gabriel."
-    show gabriel smile3 at right
+    show lucas sad at superLeft
+    b "¡¡Joeee!!"
+    show lucas smile2 at superLeft
+    b "Enfin, a tu derecha del todo tenemos a nuestro querido Gabriel."
+    show gabriel smile3 at superRight
     b "Tiene mejor melena que Alicia con la mejor weekly routine."
     b "Lavarse el pelo con la lluvia"
-    show gabriel angry2 at right
-    p "Pero bueno quieres que [name] sea nuestra amiga o estás intentando que no se acerque?"
-    show gabriel smile2 at right
+    show gabriel angry2 at superRight
+    p "Pero bueno quieres que [name] sea nuestra amiga o estás intentando que no se acerque"
+    show gabriel smile2 at superRight
     p "No le escuches, llamame Gabri, aunque todos me llamen Iluminao, adoro los animalitos y el campito aunque estemos en una ciudad..."
     menu:
         "¡Yo también! Que guay":
