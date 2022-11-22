@@ -39,15 +39,13 @@ label start:
     # defecto. Es posible añadir un archivo en el directorio 'images' con el
     # nombre "bg room.png" or "bg room.jpg" para que se muestre aquí.
 
-
     #DEBUGGING AAAAA QUITAR ESTAS LINEAS
-    $ genero = "o"
-    $ pronombre = "el"
-    $ name = "Marica Chonda"
-    jump entrarDone
+    # $ genero = "o"
+    # $ pronombre = "el"
+    # $ name = "Marica Chonda"
 
     #SELECCION PRONOMBRES#
-    scene bg black
+    scene bg black with dissolve
     "Antes de empezar el juego, queremos que formes parte del juego, y nos gustaría saber si preferirías que te llamaran en femenino o en masculino"
     menu:
         "Masculino (Él)":
@@ -61,28 +59,18 @@ label start:
     
     #--------------------------
 
+    scene bg train tunnel with dissolve
 
-
-    scene bg train tunnel
-
-    "Al fin ha llegado el día, tras un largo viaje y mucho cambio. Tuvimos que mudarnos a la ciudad tras que Papá perdiera su trabajo"
-    "Afortunadamente consiguió un trabajo gracias a un amigo en la ciudad de HighPeaks."
-    "Desgraciadamente tuvimos que mudarnos a la ciudad y he tenido que dejar a todos mis amigos atrás"
-    "Hoy es mi primer día en mi nuevo instituto y he de decir que tengo algo de miedo"
-    "¿Y si ya tienen todos sus grupitos montados?"
-    "¿Y si nadie me acepta tal y como soy?"
-    "Aghhh, bueno al menos piensa que es una nueva oportunidad, ¿quién sabe lo que el futuro me depara?"
-    "Al menos hay una única persona a la que conozco, pero hace mucho que no hablamos, dudo que siquiera me reconozca"
-    "Un chico llamado Lucas iba a mi antiguo colegio pero tuvo que mudarse a la ciudad por problemas familiares"
-    "Hubo mucho revuelo en el pueblo, durante unas cuantas semanas no había un rincón donde no fuera el principal tema de conversación"
-    "Este chico se mudó a esta misma ciudad, así que probablemente le vea si tenemos la suerte de estar en la misma clase"
-    "Espera, ¿esta era la parada en la que me tenía que bajar? ¿Dónde estoy? Nooo, cogí el metro en sentido contrario"
-    "Y en 10 minutos debería de estar ya en clase… No puede ser que vaya a llegar tarde el primer día…"
-    scene bg black
-    "(Media hora más tarde…)"
-    scene bg uni
-    "Vale, esta debería de ser la parada. Ahora, ¿dónde se supone que está el instituto?"
-    "Espera, ¿ese chico no es Lucas? A lo mejor también llega tarde como siempre hacía antes, quizás podría darme indicaciones"
+    "Comienza una nueva vida, tras un largo viaje y mucho cambio. Tuvimos que mudarnos a la ciudad tras que Papá perdiera su trabajo"
+    "Afortunadamente consiguió un trabajo gracias a un amigo en la ciudad de HighPeaks"
+    "Tuvimos que mudarnos y he tenido que dejar a todos mis amigos atrás"
+    "Hoy es mi primer día en mi nuevo instituto y voy con miedo"
+    "Al menos mi padre me dijo que Lucas, un antiguo compañero de instituto, ahora estudia aquí"
+    "Espero que se acuerde de mi, eramos muy buenos amigos antes de que se fuera hace 2 años..."
+    "Espera, ¿esta era la parada en la que me tenía que bajar? ¿Dónde estoy? Esto me pasa por estar en babia"
+    "Y para colmo en 10 minutos debería de estar ya en clase…"
+    show lucas normal at superRight with moveinright
+    "Espera, ¿ese chico no es Lucas? A lo mejor también llega tarde como siempre hacía antes"
     
     menu:
         "(Te acercas al chico)"
@@ -93,57 +81,51 @@ label start:
             jump sorpresaLucas
 
     label acercarteLucas:
-    b "Hombre! Cuanto tiempo! Que haces tú por aquí, hacia años que perdimos el contacto"
-    y "2 exactamente, me he mudado a High Peaks ahora, así que supongo que somos compañeros de clase"
-    b "Genial! Estoy deseando presentarte a mis amigos, lo vas a flipar! Son un poco peculiares pero nada que ver con la escoria de nuestro antiguo instituto, recuerdas?"
-    y "Como no me voy a acordar…tu llevas 2 años aqui pero yo me he mudado esta semana jajajaja."
-    b "Venga no hay tiempo que perder! Que al final no llegamos a clase"
+    show lucas normal at center with move
+    b "Depende de para qué. ¿Quién pregunta por.."
+    show lucas surprised at center
+    b "¿[name]? ¿Eres tú?"
     jump conocidoLucas
 
     label sorpresaLucas:
-    "SIN IMPLEMENTAR"
+    show lucas angry1 at center with move
+    b "¡OYE! Ten mas cui.."
+    show lucas surprised at center
+    b "¿[name]? ¿Eres tú?"
     jump conocidoLucas
 
     label conocidoLucas:
+    show lucas laugh at center
+    b "¡Cuánto tiempo! Hacia años que no nos vemos. ¿Cómo tú por aquí?"
+    show lucas smile1 at center
+    y "Me he mudado a High Peaks ahora por movidas familiares, así que supongo que somos compañeros de clase"
+    show lucas smile2 at center
+    b "¿En serio? ¡Eso es genial! La gente de High Peaks no tiene nada que ver con la escoria de nuestro antiguo instituto, ¿Recuerdas?"
+    y "Como no me voy a acordar…tu llevas 2 años aqui pero yo me he mudado esta semana jajaja."
+    b "¡Venga no hay tiempo que perder! Que vamos fatal de tiempo"
 
-    scene bg old school
+    scene bg old school with pixellate
 
     "(Instituto HighPeaks)"
-    y "Guau, este instituto es gigante pero…¿Por qué la verja está cerrada?"
-    b "El director es muy estricto con la hora de entrada, y si llegas tarde tienes que llamar y te penalizan, pero ya me conoces, siempre tengo un plan B jeje."
-    "(Lucas levanta un cartón que estaba apoyado al otro lado del muro del instituto y me señala para que le siga.)"
-    y "¡No puedo ir y colarme el primer día de clase!"
-    b "Caalma, nadie se dará cuenta, ¿o acaso quieres recibir tu primer castigo sin si quiera haberte presentado a la clase, eh?"
 
-    menu:
-        "Seguir a Lucas":
-            jump seguirLucas
-        "Llamar al timbre":
-            jump llamarTimbre
-    label seguirLucas:
-    y "Como odio que siempre acabes convenciéndome de todo"
-    b "Jajaja como los viejos tiempos. Venga, vamos."
-    "Una vez dentro Lucas me guió por el edificio hasta la planta donde están las aulas de segundo año."
+    y "¡Guau, este instituto es gigante!"
+    show lucas smile3 at superLeft with moveinleft
+    b "Dejate de tantas vistas que llegamos tarde, quedamos en el recreo en la entrada y te presento a mi grupo de amigos"
+    #BUSCAR ALGO DE MOVIMIENTO Y NO TELETRANSPORTACION
+    show lucas smile3 at superRight with move
+    b "¡Nos vemos en clase!"
+    hide lucas smile3 with moveoutright
+    #SONIDO DE ALGUIEN CORRIENDO AAA
+    y "¡OYE!"
     scene bg black
-    "Me quedé hablando con Lucas en el baño hasta que se terminara la primera hora y poder entrar sin problema a la segunda"
-    "No ha cambiado nada de nada, es como si le hubiera visto ayer..."
-    "Y pensar que llevabamos 2 años sin vernos…"
-    jump entrarDone
-
-    label llamarTimbre:
-    "SIN IMPLEMENTAR"
-    scene bg black
-    jump entrarDone
+    "(Tras varios minutos consigues encontrar el aula justo cuando suena el timbre)"
+    #SONIDO TIMBRE AAA
+    scene bg lecturehall with pixellate
+    "*Riiing*"
 
     #CONOCE A ALICIA
-    label entrarDone:
-
-    "*Ding, dong, ding, dong*"
-    "*Ding, dong, dong, ding*"
-    "Ahí está, el cambio de clase, debería de aprovechar ahora para entrar al aula"
-    scene bg lecturehall
-    "Bien, parece que el profesor ya ha salido, menos mal. Veamos ahora solo tengo que encontrar un asiento libre sin…"
-    "*¡Ponk!*"
+    "Lo conseguí,ahora solo tengo que encontrar un asiento libre sin…"
+    "*¡Ponk!*" with hpunch
     "(Te chocas con alguien y te das un golpe)"
     menu:
         "Ten más cuidado la proxima vez":
