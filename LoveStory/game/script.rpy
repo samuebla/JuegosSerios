@@ -58,7 +58,7 @@ label start:
     $ name = renpy.input("¿Y cual es tu nombre?")
     
     #DEBUG
-    jump pijamadaDecidido
+    jump pijamada
 
     #--------------------------
 
@@ -326,26 +326,45 @@ label start:
             jump tenerBuenGusto
 
     label tenerMalGusto:
+    show alba shocked at superRight
+    show alejandro surprised at centerRight
+    show lucas smirk
     b "Pues más para mí jeje, Happy flower tenía también sobras así que no te preocupes"
     c "Las croquetas de la madre de Alicia son un manjar que no todo el mundo sabe apreciar"
+    show alejandro sad
+    show alba smug
     g "Y dale, que sí que están muy ricas pero me lo poneis imposible para ponerme en forma.."
     jump empiezaPijamada
 
     label tenerBuenGusto:
+    show lucas smirk at superLeft
     b "Quien rechace esta oferta de croquetas caseras está tomando la peor decisión de su vida"
+    show alejandro sad
     g "¿Podeis parar de meterme dagas? Que ya os he dicho que me las voy a comer tontos"
+    show lucas smile3
     b "Así me gusta, croquetitas para todos"
     jump empiezaPijamada
 
     label empiezaPijamada:
+    show alejandro smile1
+    show alba smile1
     h "En fin chicos, mi madre ha quedado mañana con sus amigas fuera de la ciudad para hacer un ‘Brunch’ con sus amigas así que hoy no duerme aquí"
+    show alicia smile2
     h "¡Así que tenemos noche libre para lo que queramos!"
+    show lucas laugh
     b "¡Noche de Pelis de Terror!"
+    show alejandro smirk
     g "¡Jugar a verdad o reto!"
+    show alicia annoyed
     h  "Prefiero verdad o reto antes que traumarme con mas pelis"
+    show gabriel laugh at center
     p "Una amiga me habló de un documental de Notflix sobre toda la industria cárnica"
     p "¡Le gustó tanto que se hizo vegana tras vérselo, igual os gusta!"
+    show alba annoyed
     c "Voto por verdad o reto con tal de no comerme la chapa del siglo o un peñazo de peli"
+    show lucas smile1 at superLeft
+    show alejandro smile1 at centerRight
+    show gabriel smile1 at center
     b "Y bien [name], ¿Qué quieres hacer tú?"
     menu:
         "Peli de terror":
@@ -356,29 +375,48 @@ label start:
             jump noVerdadOReto
 
     label noVerdadOReto:
+    show alicia smile2
+    show alba smile1
     h "3 contra 2, por lo que verdad o reto gana jeje"
+    show lucas sad
     b "Bueeeno, vaale. Pero la proxima vez peli de terror"
 
     jump comerCroquetas
 
     label verdadOReto:
+    show alejandro smirk
+    show alba smile1
+    show alicia smile1
     g "Una chica con iniciativa. Así nos conoces mas a todos nosotros, ¿no?"
+    show alba smug
     c "Creo que con solo una semana aquí ya nos tiene calados a todos jajaja"
 
     jump comerCroquetas
 
     label comerCroquetas:
+    show lucas smirk
     b "¡Pues a devorar las croquetas y luego nos subimos a las habitaciones, nos ponemos el pijamita y jugamos hasta que nos durmamos!"
-    scene bg black
-    "*Ñam ñam ñam"
+    scene bg black with pixellate
+    "*Ñam ñam ñam*"
     #PONER SONIDITO DE COMER AAAAAAAAAAAAAAAAAAAAA
+    jump pijamada
 
+    label pijamada:
+    scene bg bathroom with dissolve
+    show alejandro normal at centerRight with moveinright
+    show lucas smile1 at centerLeft with moveinleft
     b "¿Todavía sigues durmiendo con esa camiseta cutre? Que si no tienes pijama Alicia tendrá alguno por ahí"
+    show alejandro angry1
     g "Já, já, já. Este es mi pijama, siempre tengo mucho calor por la noche y así duermo más cómodo"
+    show gabriel smile2 at center with moveinleft
     p "De hecho tiene razón, con menos ropa el sueño es más profundo porque el cuerpo se enfría y se autorregula más rápido que con el algodón de la ropa"
-
+    show gabriel smile3
+    show alicia normal at superRight with moveinright
     h "..."
+    show alba normal at superLeft with moveinleft
     c "..."
+    show lucas normal
+    show alejandro normal
     b "..."
     menu:
         "...":
@@ -388,8 +426,7 @@ label start:
         
     label risasCalifornianas:
 
-
-    "HASTA EL HIGO"
+    "CHICX QUERIAS 3MIN y te hemos hecho 15 no te puedes quejar"
 
 
     # Finaliza el juego:
