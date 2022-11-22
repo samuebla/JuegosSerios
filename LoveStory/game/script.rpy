@@ -57,6 +57,9 @@ label start:
 
     $ name = renpy.input("¿Y cual es tu nombre?")
     
+    #DEBUG
+    jump pijamadaDecidido
+
     #--------------------------
 
     scene bg train tunnel with dissolve
@@ -117,12 +120,15 @@ label start:
     hide lucas smile3 with moveoutright
     #SONIDO DE ALGUIEN CORRIENDO AAA
     y "¡OYE!"
-    scene bg black
+    scene bg black with pixellate
     "(Tras varios minutos consigues encontrar el aula justo cuando suena el timbre)"
     #SONIDO TIMBRE AAA
-    scene bg lecturehall with pixellate
+    scene bg lecturehall with dissolve
     "*Riiing*"
 
+    jump introInstituto
+
+    label introInstituto:
     #CONOCE A ALICIA
     "Lo conseguí,ahora solo tengo que encontrar un asiento libre sin…"
     "*¡Ponk!*" with hpunch
@@ -133,7 +139,7 @@ label start:
         "(Pedir perdón por chocarte)":
             jump perdonAlicia
     label cuidadoAlicia:
-    show alicia sad at center
+    show alicia sad at center with move
     h "¡Ay jo lo siento! Perdona, no te había visto."
     h "¿Te he hecho daño? Ay lo siento mucho joe, no era mi intención… Toma"
     hide alicia sad
@@ -144,7 +150,7 @@ label start:
     jump conocidoAlicia
 
     label perdonAlicia:
-    show alicia smile1 at center
+    show alicia smile1 at center with move
     h "¡Ay no seas boba! Soy yo que estoy siempre en los mundos de yupi y nunca me entero de nada. Toma, como un simbolo de paz jajaja"
     hide alicia smile1
     show alicia smile2 at center
@@ -154,37 +160,41 @@ label start:
     jump conocidoAlicia
 
     label conocidoAlicia:
-    show lucas smile1 at left
-    show alicia smile1 at right
+    show alicia smile1 at center
+    show alicia smile1 at right with move
+    show lucas smile1 at left with moveinleft
     
     b "Esta es [name], era mi mejor amig[genero] de mi antiguo instituto, y parece que ahora va a ser nuestr[genero] compi de clase. ¿NO ES GENIAL?"
     show alicia laugh at right
     h "¡Ay genial! Más gente en el grupo! Estoy deseando conocerte. ¿Pijamada este finde en mi casa?"
     show lucas smile3 at left
     b "¡De una! Luego en el recreo le presento al resto y les digo lo de la pijamada"
-    hide alicia laugh
+    hide alicia laugh with moveoutright
     show lucas smile1
     b "[name], cuando se acabe el recreo te presento a mi grupito, ya les he avisado por whatsthematter que tenemos una nueva personita jeje."
-    scene bg black
+    scene bg black with pixellate
     "(Termina la clase y llega al recreo)"
 
     #RECREO
-    scene bg club
+    scene bg club with pixellate
     "¿Esos no son Lucas y Alicia?"
     "Están con 3 personas más"
-    show lucas smile2 at superLeft
+    show lucas smile2 at superLeft with moveinleft
     b "¡[name] ven aquí, te voy a presentar a mis amiguis!"
-    show alicia smile1 at centerLeft
+    show alicia smile1 at centerLeft with moveinleft
     b "A Alicia ya la conociste antes, es la chica que nos da la serotonina diaria."
     b "Es imposible conseguir enfadarla, y mira que lo hemos intentado jajaja"
     show alicia smile2 at centerLeft
     h "Ay tampoco es así… que [name] se va a pensar que estoy ida o algo "
-    show lucas laugh at superLeft
-    show alejandro laugh at center
-    show alba laugh at centerRight
-    show gabriel laugh at superRight
+    show lucas laugh at superLeft 
+    show alejandro laugh at center with moveinright
+    show alba laugh at centerRight with moveinright
+    show gabriel laugh at superRight with moveinright
     t "Jajajaja"
-    b "Este es Alejandro. No te dejes llevar por las apariencias, es un gymbro con todas las letras pero tiene buen corazón"
+    show alba smile1 at centerRight
+    show gabriel smile1 at superRight
+    show lucas smile2 at superLeft
+    b "El pelirrojo del medio es Alejandro. No te dejes llevar por las apariencias, es un gymbro con todas las letras pero tiene buen corazón"
     show alejandro smirk at center
     b "Y siempre nos ayuda cueste lo que cueste, ¿a que sí corazón de melón?"
     show alejandro smile2 at center
@@ -195,6 +205,8 @@ label start:
     b "Enfin, a tu derecha del todo tenemos a nuestro querido Gabriel."
     show gabriel smile3 at superRight
     b "Tiene mejor melena que Alicia con la mejor weekly routine."
+    show lucas smile3 at superLeft
+
     b "Lavarse el pelo con la lluvia"
     show gabriel angry2 at superRight
     p "Pero bueno quieres que [name] sea nuestra amiga o estás intentando que no se acerque"
@@ -203,27 +215,36 @@ label start:
     menu:
         "¡Yo también! Que guay":
             jump veryFriendlyGabriel
-        "*Encantad[genero], soy [name]":
+        "Encantad[genero], soy [name]":
             jump friendlyGabriel
 
     label veryFriendlyGabriel:
+    show gabriel smile3 at superRight
     p "¿Si? Podemos quedar un día y te enseño mi mascota. ¡Es un Border Coly precioso!"
+    show lucas smile2 at superLeft
     b "Pisa el freno que falta una por presentar, luego ya haced lo que querais tortolitos"
+    show gabriel smile1 at superRight
     p "Ups, perdón jajaja"
     jump conocidoGabriel
 
     label friendlyGabriel:
+    show gabriel smile3 at superRight
     p "[name], que nombre más bonito. ¿Y por qué te mudaste a.."
+    show lucas smile3 at superLeft
     b "las preguntas para más tarde tortolitos que me falta una por presentar"
+    show gabriel smile1 at superRight
     p "vale mamá"
     jump conocidoGabriel
 
     label conocidoGabriel:
+    show lucas smile1 at superLeft
     b "En fin, por donde iba..."
     b "Por último pero no menos importante, nuestra incomprendida de la vida, ¡Alba!"
-    show alba annoyed
+    show alba annoyed at centerRight
     c "Que sea más tímida no significa que sea una incomprendida..."
+    show lucas smile2 at superLeft
     b "Luego se suelta más, solo dale algo de tiempo. Hablando de lo que comentaba antes, ¿pijamada este finde todos juntos? ¡Alicia pone casa!"
+    show alba smile1 at centerRight
     menu:
         "No se yo...":
             jump noPijamada
@@ -231,13 +252,25 @@ label start:
             jump siPijamada
     
     label noPijamada:
-    show alejandro smirk
+    show alejandro smirk at center
     g "Venga anímate, parecemos majaras pero te lo vas a pasar genial en la pijamada."
     g "Alicia prepara una limonada sin azucar y tiene un gatete"
+    show lucas smile3 at superLeft
+    b "Nah, [name] viene si o si"
+    b "Recuerda que el viernes quedamos a las 20 donde el instituto para ir a casa de Alicia, ¿Vale?"
+    menu:
+        "Ookey":
+            jump pijamadaDecidido
+        "Bueno vale":
+            jump pijamadaDecidido
+
     jump pijamadaDecidido
 
     label siPijamada:
+    show alicia delighted at centerRight with move
     h "¡Yey! Voy a ir diciendole a mi madre que compre las cosas para hacer una limonada"
+    hide alicia delighted with moveoutright
+    show alejandro sad at center
     g "¡¡¡Recuerda que no tenga azucar!!!"
     b "Que sí gymbro, su madre ya sabe que tiene que hacer una limonada sosa como siempre jajaja"
     b "Bueno [name] pues recuerda que el viernes quedamos a las 20 donde el instituto para ir a casa de Alicia, ¿Vale?"
@@ -248,26 +281,43 @@ label start:
             jump pijamadaDecidido
 
     label pijamadaDecidido:
-    scene bg black
+    scene bg black with pixellate
     "(Pasas toda la semana con ellos hasta el viernes de la pijamada)"
 
     #PIJAMADA
-    scene bg apartment exterior
+    scene bg apartment exterior with fade
+    show lucas normal at right with moveinright
     b "Y esta es la casa de Alicia, vamos a entrar cuanto antes que me muero de hambre"
     "*Tok tok*"
+    show gabriel smile1 at left with moveinleft
     p " Buenas Chiquetss, estamos en la cocina preparando la cena, dejad las mochilas en el salón y venid"
+    show lucas surprised
     b "¡Uh! ¿Qué ha hecho la madre de Alicia esta vez? Me muero por sus croquetitas Mmhh"
+    show gabriel smile2
     p "Venid a la cocina y lo vereis jeje"
 
-    scene bg encore kitchen
+    scene bg encore kitchen with fade
 
+    show alicia annoyed at centerLeft
     h "¡Te juro que la limonada no tiene azúcar blanco, es estevia, que he visto a mi madre echarlo!"
+    show alejandro angry2 at centerRight with moveinright
     g "¡MENTIRA! Una limonada tan deliciosa, ¿sin nada de azucar? No me lo creo"
+    show alejandro angry1
+    show alba smug at superRight with moveinright
     c "Pues tienes croquetas bien grasientas de cena así que prepárate para el workout de mañana"
+    show alejandro surprised
     g "¿QUÉEE?"
+    show lucas smile1 at superLeft with moveinleft
+    show alejandro sad
     p "Haz el favor de disfrutar de la cena y ya te preocuparás del ejercicio mañana, que la mami de Happy Flower lo ha hecho todo casero con todo su amor y no tiene aditivos ni mierdas"
     c "Peores son los batidos de proteinas con cosas raras que te metes al cuerpo"
+    show lucas laugh
+    show alicia laugh
+    show alba laugh
     b "Zasca JAJAJAJAJ"
+    show alba smile1
+    show alicia smile1
+    show lucas smile1
     b "[name] a ti te gustan las croquetas, ¿no? Que encima son caseras.."
     menu:
         "Pues...":
