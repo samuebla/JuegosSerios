@@ -409,7 +409,7 @@ label start:
         "¿Mechero?":
             jump siFuma
     label noFuma:
-    b "No seas boba [name]"
+    b "No seas bob[genero] [name]"
     label siFuma:
     b "En Mechero alguien te hace una pregunta al oído, la respuesta a las preguntas siempre es una persona."
     b "Solo puedes responder a la pregunta elegiendo a una pregunta que esté en esta habitación."
@@ -470,7 +470,7 @@ label start:
     b "Cagué, jaja."
     pElegido "¿Y bien?"
     b "Le pregunté quien le gustaba más de aquí."
-    b "Lleva ya una semana, claramente se habrá decantado por alguien ¿no?"
+    b "Lleva ya una semana, claramente se habrá decantado por alguien, ¿no?"
     if (pElegido == c):
         c "Oh, gra, gracias supongo. Pensaba que estaba demasiado borde contigo, me alegro que te guste mi personalidad"
     
@@ -478,13 +478,13 @@ label start:
         h "¿Ay en serio? Pues a mi me pareces un encanto de persona, nunca nadie se suele fijar en mí porque me ven demasiado inocente..."
     
     if (pElegido == g):
-        g "Ay que lind@, tú me pareciste monisim@ desde el primer dia que nos presentaron..."
+        g "Ay que lind[genero], tú me pareciste monisim[genero] desde el primer dia que nos presentaron..."
         g "Igual congeniamos, jeje"
     
     if (pElegido == p):
         g "Y claro, va y escoge al chico delgado del mullet, ¿no?"
         p "Que la gente quiera salir con un chico con melena no significa que tenga Daddy Issues, bobo."
-        p "Me alegra saberlo [name], he disfrutado mucho de tu compañía esta semana yo también..."
+        p "Me alegra saberlo [name], yo también he disfrutado mucho de tu compañía esta semana..."
     
     b "*Bostezo*"
     b "Bueno, ya es muy tarde, ¿no? Igual es hora de irse a la cama y enfriar un poco esto."
