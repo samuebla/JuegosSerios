@@ -422,11 +422,112 @@ label start:
         "...":
             jump risasCalifornianas
         "Sois unos frikis de narices":
-            jump risasCalifornianas
+            jump risasBorde
         
     label risasCalifornianas:
+    h "Jajajaj no se corta ni un pelo"
+    c "Bien tirada"
+    t "Jajajajaja"
+    b "Ahora que veo que estamos bien activos vamos al salón un rato y cuando tengamos sueño nos subimos"
+    jump risasSolucionado
+    label risasBorde:
+    b "Vale parejita autorregulame ésta *fart*"
+    p "¡LUCAS!"
+    h "¡EVACUACIÓN, TODOS AL SALÓN DE INMEDIATO!"
+    jump risasSolucionado
+    label risasSolucionado:
+    c "Me bajo las mantitas, vamos allá."
 
     "CHICX QUERIAS 3MIN y te hemos hecho 15 no te puedes quejar"
+    #Transicion al salon
+
+    b "Pues hoy vamos a innovar un poco y vamos a jugar a Mechero"
+    menu:
+        "Yo no fumo":
+            jump noFuma
+        "¿Mechero?":
+            jump siFuma
+    label noFuma:
+    b "No seas bob[genero] [name]"
+    label siFuma:
+    b "En Mechero alguien te hace una pregunta al oído, la respuesta a las preguntas siempre es una persona."
+    b "Solo puedes responder a la pregunta elegiendo a una pregunta que esté en esta habitación."
+    b "Le pasas el mechero a quien hayas elegido y se tira una moneda."
+    b "Si es cara tienes que decir la pregunta que te han hecho."
+    b "Si es cruz nadie salvo tú y el que te ha hecho la pregunta sabrá por qué has escogido a esa persona" 
+    menu:
+        b "¿Entendido?"
+        "Si":
+            jump expMecheroDone
+        "No":
+            jump siFuma
+    
+    label expMecheroDone:
+    h "Bueno pues empiezo yo que para algo es mi casa jajaj, y voy a preguntar a..."
+    h "Alba"
+    "*Susurros*"
+    "(Alba le pasa el mechero a Alejandro)"
+    g "¿Que? Como salga cara y me hayas señalado por algo feo te vas a enterar boba"
+    "*Sale cara*"
+    h "Oh oh"
+    g "¿Y bien?"
+    c "Me ha preguntado que si solo pudiera escoger a una persona para sobrevivir a una apocalipsis zombie a quién escogería"
+    g "Aww, ¿es porque estoy más fuerte que el resto?"
+    c "Sí, por lo que tu carne tiene que estar mucho más sabrosa"
+    b "Puajajajaja"
+    h "JAJAJA Eso si que no me lo veia venir"
+    g "???????"
+
+    g "En fin, ahora me toca preguntar y escojo a Gabriel"
+    "*Susurros*"
+    "(Gabriel le pasa el mechero a Lucas)"
+    "(Tiran el dado y sale cruz)"
+    b "¡Oh venga ya! Nunca me entero de por qué me señalais"
+    p "Para la proxima será jajaja"
+    p "Hoy te quedas con la duda"
+    b "Bueno pues me toca, ¡y voy a preguntar a [name]!"
+    "*Gabriel te dice al oido:*"
+    b "¿Con quién de aquí tendrías una relación amorosa?"
+    menu:
+        b "¿Quién te ha gustado más?"
+        "Alba":
+            $ pElegido = c
+            jump partnerChosen
+        "Alicia":
+            $ pElegido = h
+            jump partnerChosen
+        "Alejandro":
+            $ pElegido = g
+            jump partnerChosen
+        "Gabriel":
+            $ pElegido = p
+            jump partnerChosen
+
+    label partnerChosen:
+    pElegido "Más te vale tirar cara Bestie"
+    "(Sale cara)"
+    b "Cagué, jaja."
+    pElegido "¿Y bien?"
+    b "Le pregunté quien le gustaba más de aquí."
+    b "Lleva ya una semana, claramente se habrá decantado por alguien, ¿no?"
+    if (pElegido == c):
+        c "Oh, gra, gracias supongo. Pensaba que estaba demasiado borde contigo, me alegro que te guste mi personalidad"
+    
+    if (pElegido == h):
+        h "¿Ay en serio? Pues a mi me pareces un encanto de persona, nunca nadie se suele fijar en mí porque me ven demasiado inocente..."
+    
+    if (pElegido == g):
+        g "Ay que lind[genero], tú me pareciste monisim[genero] desde el primer dia que nos presentaron..."
+        g "Igual congeniamos, jeje"
+    
+    if (pElegido == p):
+        g "Y claro, va y escoge al chico delgado del mullet, ¿no?"
+        p "Que la gente quiera salir con un chico con melena no significa que tenga Daddy Issues, bobo."
+        p "Me alegra saberlo [name], yo también he disfrutado mucho de tu compañía esta semana..."
+    
+    b "*Bostezo*"
+    b "Bueno, ya es muy tarde, ¿no? Igual es hora de irse a la cama y enfriar un poco esto."
+
 
 
     # Finaliza el juego:
