@@ -403,44 +403,45 @@ label start:
 
     label pijamada:
     scene bg bathroom with dissolve
-    show alejandro normal at centerRight with moveinright
-    show lucas smile1 at centerLeft with moveinleft
+    show alejandro normal pajama at centerRight with moveinright
+    show lucas smile1 pajama at centerLeft with moveinleft
     b "¿Todavía sigues durmiendo con esa camiseta cutre? Que si no tienes pijama Alicia tendrá alguno por ahí"
-    show alejandro angry1
+    show alejandro angry1 pajama
     g "Já, já, já. Este es mi pijama, siempre tengo mucho calor por la noche y así duermo más cómodo"
-    show gabriel smile2 at center with moveinleft
+    show gabriel smile2 pajama at center with moveinleft
     p "De hecho tiene razón, con menos ropa el sueño es más profundo porque el cuerpo se enfría y se autorregula más rápido que con el algodón de la ropa"
-    show gabriel smile3
-    show alicia normal at superRight with moveinright
+    show gabriel smile3 pajama
+    show alicia normal pajama at superRight with moveinright
     h "..."
-    show alba normal at superLeft with moveinleft
+    show alba normal pajama at superLeft with moveinleft
     c "..."
-    show lucas normal
-    show alejandro normal
+    show lucas normal pajama
+    show alejandro normal pajama
     b "..."
     menu:
         "...":
-            jump risasCalifornianas
+            jump akwardSilence
         "Sois unos frikis de narices":
-            jump risasBorde
+            jump respuestaBorde
         
-    label risasCalifornianas:
+    #FALTA AVANZAR A PARTIR DE AQUI CARAS Y DE TODO
+    label akwardSilence:
     h "Jajajaj no se corta ni un pelo"
     c "Bien tirada"
     t "Jajajajaja"
     b "Ahora que veo que estamos bien activos vamos al salón un rato y cuando tengamos sueño nos subimos"
     jump risasSolucionado
-    label risasBorde:
-    b "Vale parejita autorregulame ésta *fart*"
+    label respuestaBorde:
+    b "Vale parejita autorregulame ésta"
+    b "*fart*" with hpunch
     p "¡LUCAS!"
     h "¡EVACUACIÓN, TODOS AL SALÓN DE INMEDIATO!"
     jump risasSolucionado
     label risasSolucionado:
     c "Me bajo las mantitas, vamos allá."
 
-    "CHICX QUERIAS 3MIN y te hemos hecho 15 no te puedes quejar"
     #Transicion al salon
-
+    scene bg living room
     b "Pues hoy vamos a innovar un poco y vamos a jugar a Mechero"
     menu:
         "Yo no fumo":
