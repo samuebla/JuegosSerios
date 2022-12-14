@@ -9,6 +9,10 @@ define c = Character("Alba")
 define p = Character("Gabriel")
 define g = Character("Alejandro")
 define t = Character("Todos")
+
+#Personajes secundarios
+define Camarero = Character("Camarero")
+
 transform superLeft:
     xalign 0.0
     yalign 0.45
@@ -493,15 +497,27 @@ label start:
         b "¿Quién te ha gustado más?"
         "Alba":
             $ pElegido = c
+            $ generoPareja = "a"
+            $ pronombrePareja = "ella"
+            $ nombrePareja = "Alba"
             jump partnerChosen
         "Alicia":
             $ pElegido = h
+            $ generoPareja = "a"
+            $ pronombrePareja = "ella"
+            $ nombrePareja = "Alicia"
             jump partnerChosen
         "Alejandro":
             $ pElegido = g
+            $ generoPareja = "o"
+            $ pronombrePareja = "él"
+            $ nombrePareja = "Alejandro"
             jump partnerChosen
         "Gabriel":
             $ pElegido = p
+            $ generoPareja = "o"
+            $ pronombrePareja = "él"
+            $ nombrePareja = "Gabriel"
             jump partnerChosen
 
     label partnerChosen:
@@ -523,13 +539,164 @@ label start:
     
     if (pElegido == p):
         g "Y claro, va y escoge al chico delgado del mullet, ¿no?"
-        p "Que la gente quiera salir con un chico con melena no significa que tenga Daddy Issues, bobo."
-        p "Me alegra saberlo [name], yo también he disfrutado mucho de tu compañía esta semana..."
+        p "Que me seleccione a mi antes que un chico fibraro con una weekly routine de gym y gym es completamente normal Alejandro"
+        p "Eres más que un chico con músculos pero tienes que dejar de centrarte en eso todo el rato."
+        p "Por donde iba, me alegra saberlo [name], he disfrutado mucho de tu compañía esta semana yo también..."
     
     b "*Bostezo*"
     b "Bueno, ya es muy tarde, ¿no? Igual es hora de irse a la cama y enfriar un poco esto."
 
+    h "Si, yo estoy ya muy cansada..."
 
+    pElegido "Psst, ¿te gustaría quedarnos un rato hablando? Me gustaría hablar contigo de lo que has mencionado antes..."
+    menu:
+        "Si":
+            jump siHablarUnRato
+        "No":
+            jump noHablarUnRato
+    
+    label noHablarUnRato:
+    pElegido "Venga porfi... solo son 2 minutos..."
+
+    label siHablarUnRato:
+    pElegido "Solo quería que supieras que es reciproco..."
+    pElegido "Y se que solo llevas una semana con nosotros, pero podríamos conocernos mejor y ver si congeniamos..."
+    pElegido "¿Te parece tener una cita la semana que viene? Yo invito"
+    menu:
+        "¡Genial!":
+            jump siIrCita
+        "Mm... Venga, vale":
+            jump siIrCita
+
+    label siIrCita:
+    pElegido "¡Genial! Nos vemos la semana que viene"
+
+
+    #PRIMERA CITA
+    label PrimeraCita:
+
+    "(Pasas la semana en el instituto, relacionandote cada vez más con [nombrePareja] y llega el día de la cita)"
+    "(Ambos quedais en un restaurante de la ciudad que te ha recomendado [pronombrePareja])"
+
+    if (generoPareja == "o"):
+        "(Se ha puesto elegante y todo…)"
+        menu:
+            "Que guapo estás":
+                jump primerElogioCita
+            "Que raro te veo, no te pega":
+                jump noPrimerElogioCita
+        label primerElogioCita:
+        pElegido "¿Tu crees? Gracias, me ves tranquilo pero me he tirado 20 minutos pensando que ponerme jajaja"
+        jump finPrimerElogioCita
+        label noPrimerElogioCita:
+        pElegido "Oh.. La verdad es que justo lo he estrenado hoy, solo quería intentar impresionar jajaja me lo apunto para la siguiente"
+        jump finPrimerElogioCita
+
+    label finPrimerElogioCita:
+    Camarero "Muy buenas. Hoy estamos un poco llenos así que vais a tener que esperar un momento. En cuanto se vaya una mesa os meto"
+    pElegido "Sin problema, podemos esperar"
+    pElegido "Podemos aprovechar esta espera para hacer una cosa mientras tanto.."
+    pElegido "Siento que estas dos semanas has estado muy cómoda con nosotros, pero no has participado mucho y no te conocemos mucho."
+    pElegido "¿Te parece si nos hacemos la típica ronda de preguntas para conocernos mejor?"
+    pElegido "Se que es un poco infantil pero así me cuentas algo de tí..."
+    if (pElegido != c):
+        pElegido "No me callo ni debajo del agua y a veces no dejo hablar..."
+    else:
+        pElegido "No suelo hablar mucho y eso dificulta más todo..."
+        pElegido "No tengo buenas habilidades sociales"
+    menu:
+        "Venga, vamos a jugar":
+            jump empiezaElOtroRondaPreguntas
+        "Vale, pero empiezas tú preguntando":
+            jump empiezaElOtroRondaPreguntas
+    label empiezaElOtroRondaPreguntas:
+    pElegido "¡Genial! Comienzo preguntando yo"
+    pElegido "Hmm... ¿Te consideras extrovertid[genero] o introvertid[genero]?"
+    menu:
+        "Extrovertid[genero]":
+            jump extrovertida
+        "Introvertid[genero]":
+            jump introvertida
+    label extrovertida:
+    if (pElegido == g):
+        pElegido "Ya somos 2, aunque me da a mi que ya te sabias mi respuesta jajaja"
+    if (pElegido == h):
+        pElegido "Ya somos 2, aunque me da a mi que ya te sabias mi respuesta jajaja"
+    if (pElegido == c):
+        pElegido "A ver si se me pega algo de ti, yo soy algo más callada pero en confianza hablo de más jajaja"
+    if (pElegido == p):
+        pElegido "A ver si se me pega algo de ti, yo soy algo más callado pero en confianza hablo de más jajaja"
+    jump finExtrovertidaIntrovertida
+    label introvertida:
+    if (pElegido == g):
+        pElegido "Se nota que al menos en confianza hablas más, eres un solecito una vez se te conoce"
+    if (pElegido == h):
+        pElegido "Se nota que al menos en confianza hablas más, eres un solecito una vez se te conoce"
+    if (pElegido == c):
+        pElegido "Estamos igual entonces, entre introvertid[genero]s nos la pasamos mejor aunque la gente se piense que quedamos y no hablamos nunca jajajaja"
+    if (pElegido == p):
+        pElegido "Estamos igual entonces, entre introvertid[genero]s nos la pasamos mejor aunque la gente se piense que quedamos y no hablamos nunca jajajaja"
+    jump finExtrovertidaIntrovertida
+
+    label finExtrovertidaIntrovertida:
+    pElegido "Ahora te toca preguntarme"
+    menu:
+        "¿Que buscas tener conmigo?":
+            jump preguntaPrimeraCitaSeria
+        "¿Cual es tu signo del zodiaco?":
+            jump zodiacoPrimeraCita
+    
+    label preguntaPrimeraCitaSeria:
+    pElegido "La gente suele buscar algo esporádico o sexo rápido. Pero me has encantado como persona y no descarto tener algo serio..."
+    pElegido "Siempre y cuando tú estes de acuerdo, claro..."
+    jump finPrimeraPreguntaAPareja
+    label zodiacoPrimeraCita:
+    pElegido "Si te soy sincer[genero] no tengo ni idea. El que sea más compatible contigo espero jajaja"
+    jump finPrimeraPreguntaAPareja
+
+    label finPrimeraPreguntaAPareja:
+    pElegido "Emm... Me toca preguntar a mi"
+    pElegido "¿Te consideras alguien impulsivo que se deja llevar por las emociones o eres más racional y objetiv[genero]?"
+    menu:
+        "Impulsiv[genero] y pasional":
+            jump pasional
+        "Racional y objetiv[genero]":
+            jump racional
+    label pasional:
+    if (pElegido == g):
+        pElegido "Se nos va a dar fatal lo de planear quedadas juntos jajaja, pero al menos se que ambos tenemos sentimientos fuertes"
+    if (pElegido == h):
+        pElegido "Se nos va a dar fatal lo de planear quedadas junt[genero]s jajaja, pero al menos se que amb[genero]s tenemos sentimientos fuertes"
+    if (pElegido == c):
+        pElegido "Dicen que los polos opuestos se atraen jajaja"
+        pElegido "Así nos complementamos..."
+    if (pElegido == p):
+        pElegido "Dicen que los polos opuestos se atraen jajaja"
+        pElegido "Así nos complementamos..."
+    jump finPasionalRacional
+    label racional:
+    if (pElegido == g):
+        pElegido "Dicen que los polos opuestos se atraen jajaja"
+        pElegido "Así nos complementamos..."
+    if (pElegido == h):
+        pElegido "Dicen que los polos opuestos se atraen jajaja"
+        pElegido "Así nos complementamos..."
+    if (pElegido == c):
+        pElegido "Ya me veo planeando contigo la quedada de dentro de 3 meses con antelación jajaja"
+    if (pElegido == p):
+        pElegido "Ya me veo planeando contigo la quedada de dentro de 3 meses con antelación jajaja"
+    jump finPasionalRacional
+
+    label finPasionalRacional:
+    pElegido "Personalmente creo que tenemos mucha química."
+    pElegido "Igual estoy algo ñoñ[genero] pero siento que es algo que puede ser duradero..."
+    pElegido "Pero vamos a fluir y ver que tal."
+    pElegido "Mientras tanto vamos a comer, que ya veo al camarero venir a llamarnos"
+
+    "(La cita fue redonda, realmente es tu pareja ideal)"
+
+
+    
 
     # Finaliza el juego:
 
