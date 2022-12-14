@@ -704,7 +704,7 @@ label start:
     "¿Pero dónde te has metido [nombrePareja]? A este paso vamos a llegar tarde."
 
     "*¡Ponk!*" with hpunch
-    ChicoRandom "Aiba perdon, no te había visto."
+    ChicoRandom "Aiba, perdon, no te había visto."
     menu:
         "La próxima vez mira por donde vas.":
             jump choqueMajo
@@ -756,6 +756,71 @@ label start:
     "Pero el resto de la cita fue super bien, y nos encantó la película, espero que todo siga así de bien."
 
     
+    #Escena control de ropa
+    label ControlRopa:
+    "(Unos días más tarde ibas a salir de fiesta con tus nuevos amigos)"
+    "(Hacía mucho que no salías así que te hacía mucha ilusión y compraste un conjunto nuevo solo para esa noche.)"
+
+    b "Buah, tengo muchísimas ganas de salir esta noche, va a ser espectacular."
+    pElegido "Pues a mi no me hace especial ilusión."
+    pElegido "Estoy algo cansad[generoPareja] y no me apetece que salgamos los 3 juntos."
+    b "Pues bien que te gustaba antes de empezar a salir con [name] jajaja."
+    pElegido "Jajajaja, pero lo dicho, ya estoy con [name], no necesito a nadie más."
+    b "Bueno puedes salir para pasar un buen rato con tus amigos, que salir de fiesta no es solo para ligar, ¿a ti no te apetece [name]?"
+    menu:
+        "Siii, tengo muchísimas ganas de salir, y pasarlo bien con todo el mundo":
+            jump ganasDeSalir
+        "Bueno, no me apetece mucho, pero va a ir todo el mundo, así que no puedo faltar":
+            jump noGanasDeSalir
+    
+    label ganasDeSalir:
+    b "¡Así se habla!"
+    pElegido "Pues no se porque tienes tantas ganas de ir."
+    pElegido "Si siempre que salimos a beber acabas haciendo el ridículo jajaja"
+    pElegido "Pero bueno, si hay que ir se va cielo, allá tú."
+    jump finGanasDeSalir
+    label noGanasDeSalir:
+    b "Venga yaa, sois unos frikis, si va a ser increíble."
+    pElegido "Oye pero si no quieres no vamos, ¿eh?"
+    b "No, eso si que no, si faltais no os lo perdono. ME NIEGO."
+    jump finGanasDeSalir
+    label finGanasDeSalir:
+    b "El caso, ¿ya sabéis lo que os vais a poner?"
+    pElegido "Yo iré normalit[generoPareja], no voy en chándal porque se está lavando jajaja."
+    b "Jajaja ¿Y tu [name]? ¿Te pondrás lo que te compraste el otro día?"
+    pElegido "Ah, ¿te compraste un outfit? Cómo es que no me lo has enseñado."
+    menu:
+        "Quería sorprenderte...":
+            jump queriaSorprenderte
+        "No pensé que necesitase enseñartelo antes supongo":
+            jump queriaSorprenderte
+    label queriaSorprenderte:
+    pElegido "Bueno pues ya enséñamelo, ¿no?"
+    b "Mira, es este... ¡Es una pasada! Vas a ser la persona más atractiva de toda la fiesta."
+    pElegido "Pero esto... ¿Tú te has mirado en un espejo?"
+    pElegido "Jajaja"
+    pElegido "No se, pareciese que quieres que todo el mundo se fije en ti, tampoco hace falta tanto."
+    menu:
+        "Pero... pensé que te gustaría...":
+            jump teAfectaOpinionTraje
+        "No sé, me gustaba como me quedaba, no veo el problema.":
+            jump noTeAfectaOpinionTraje
+    label teAfectaOpinionTraje:
+    label noTeAfectaOpinionTraje:
+    pElegido "Quiero decir"
+    pElegido "No te ves tan mal"
+    pElegido "Pero parece que solo quieres llamar la atención, ¿no?"
+    pElegido "No hace falta que todo el mundo de la fiesta te conozca."
+
+    b "¿Qué más da? Ve a la fiesta como te dé la gana y punto."
+    pElegido "Bueeeno venga, un día es un día supongo..."
+    pElegido "Pero ya hablaremos cuando volvamos de la fiesta"
+    pElegido "No me gusta que tomes decisiones sin consultarmelo antes."
+    pElegido "Te quiero mucho"
+    b "¡FIESTA, FIESTA, FIESTA!"
+
+    #Cambio de escena
+
 
     # Finaliza el juego:
 
