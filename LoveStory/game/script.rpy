@@ -1283,4 +1283,26 @@ label start:
     b "¿Te das cuenta no? Tienes que terminar esto, ven vamos a hablar de ello."
 
 
+    #Escena final
+
+    b "Por lo que me has contado, me ha quedado clara una cosa"
+    b "Y es que esto no es amor, es manipulación." 
+
+    #Flashback imagen 1 ( Eh! ¿Y tú quién eres? ¿Estas ligando con mi noviX?! )
+
+    b "Ya no puedes ni ser agradable con otras personas que no sean él sin que se sienta celoso, ¿te parece normal?"
+
+    #(Hacer escena acordandote de la fiesta y el momento de juzgar el outfit)
+
+    b "Quiso hacerte sentir mal toda la fiesta por haber tomado una decisión que él no apoya."
+    b "Además tú eres dueñ[genero] de tu propio cuerpo, no tu pareja. Tú decides qué ponerte y que no, y a donde ir."
+
+    #(Flashback escena peli)
+
+    b "Y por último ponerte en contra de tus propios amigos, y hacerte sentir como que te equivocas en todo momento."
+    b "Actitudes así no son por amor, ni por protección."
+    b "No normalices esto."
+
+
+
     return
