@@ -1216,5 +1216,71 @@ label start:
     scene bg black with dissolve
     "(Al final pasasteis una buena noche, cada vez con más confianza y cariño, más acostumbrados el uno al otro, empezando a desarrollar una rutina de pareja)"
     # Finaliza el juego:
+    
+    "(Un día por el parque, estabas dando una vuelta para despejarte cuando te encuentras con tu mejor amigo.)"
+    "Hace tiempo que no le ves, ya que últimamente quedas mucho con tu pareja, y ya casi no te encuentras con los demás."
+
+    b "Anda [name], cuánto tiempo, ¿qué tal estás?"
+    menu:
+        "Bien, ¿cómo estás tú?":
+            jump vasBien
+        "Bueno, voy tirando...":
+            jump vasTirando
+    label vasBien:
+    b "Yo muy bien, te echaba un poco de menos ya. Últimamente no hay quién quede contigo."
+    b "La pasas siempre con [nombrePareja], ya quedará poco para que os caséis eh?"
+    b "¿Por qué no tomamos algo y me cuentas qué tal te va?"
+    jump finVasBien
+    label vasTirando:
+    b "Jajajaja nos pasa. Hacía tanto que no quedamos que me tienes desactualizado, si quieres podemos tomar algo y me cuentas."
+    jump finVasBien
+    label finVasBien:
+    y "¿Seguro? Llevábamos tanto sin hablar que pensaba que podrías estar enfadado conmigo."
+    b "¿Yo? Pero qué dices, si me hubiese enfadado contigo te lo habría dicho."
+    b "Entonces, ¿qué me dices? ¿Te apuntas?"
+    y "No se, debería consultarlo primero con [nombrePareja], no quiero que se moleste."
+    b "¿Y por qué tendrías que consultarselo, que le importará?"
+    menu:
+        "Ya sabes como son las parejas, si no luego lo podría malinterpretar y pensar que le estoy engañando":
+            jump protagonistaComprensiva
+        "Bueno para que sepa donde estoy, y que no se preocupe si me distraigo y no le escribo":
+            jump protagonistaComprensivaExtra
+    label protagonistaComprensiva:
+    b "Desde luego que así no son. Pero si somos amigos de toda la vida, ¿qué hay que malinterpretar?"
+    jump finProtagonistaComprensiva
+    label protagonistaComprensivaExtra:
+    b "Pero vamos a ver, podrá vivir sin que le contestes durante 1 hora, digo yo."
+    jump finProtagonistaComprensiva
+    label finProtagonistaComprensiva:
+    y "Ya, supongo que es verdad. Pero aun así..."
+    b "Pero qué pasa, que ahora tienes que consultar con el con quién sales o como."
+    b "No me digas que te tiene controlada ¿Es por eso que ya no quedas con nosotros?"
+    y "Pero si fuisteis vosotros quiénes dejasteis de invitarnos a los planes."
+    b "Dejamos de hacerlo porque ya nunca os uníais, pero no por otra cosa."
+    y "Pues [nombrePareja] no piensa lo mismo y yo tampoco."
+    b "Ya sabía yo que algo malo estaba ocurriendo cuando quiso controlarte la ropa que ibas a llevar en la fiesta."
+    menu:
+        "A ver, pero tenía razón, iba vestid[genero] de forma un poco atrevida, normal que desconfiase":
+            jump ibaAtrevido
+        "Solo me dio su opinión, además siempre me deja claro que me quiere, ya solo le tengo a [pronombrePareja]":
+            jump noIbaAtrevido
+    label ibaAtrevido:
+    b "Pero no funciona así, si a ti te gustaba, no hay más que hablar, debería confiar más en ti."
+    jump finIrAtrevido
+    label noIbaAtrevido:
+    b "Eso es mentira, yo siempre he estado aquí para ti."
+    jump finIrAtrevido
+    label finIrAtrevido:
+    b "Mira, siento mucho no haber hecho lo suficiente para que me sientas a tu lado."
+    b "Pero tu también tienes que notarlo, ¿no te sientes mal contigo misma?"
+    y "..."
+    b "Venga, vamos a tomar algo y lo hablamos con calma."
+    y "..."
+    "(Justo recibes un mensaje)"
+    pElegido "Oye donde andas cielo, te echo de menos."
+    pElegido "¿Has vuelto a salir a dar una vuelta? Espero que hayas salido normalita, pasame un selfie de donde y como estés ahora mismo cariño"
+    pElegido "¿Se puede saber porque no me contestas? ¿No andarás con alguien?"
+    b "¿Te das cuenta no? Tienes que terminar esto, ven vamos a hablar de ello."
+
 
     return
