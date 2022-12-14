@@ -12,6 +12,7 @@ define t = Character("Todos")
 
 #Personajes secundarios
 define Camarero = Character("Camarero")
+define ChicoRandom = Character("Chico con sudadera")
 
 transform superLeft:
     xalign 0.0
@@ -579,7 +580,7 @@ label start:
     "(Ambos quedais en un restaurante de la ciudad que te ha recomendado [pronombrePareja])"
 
     if (generoPareja == "o"):
-        "(Se ha puesto elegante y todo…)"
+        y "(Se ha puesto elegante y todo…)"
         menu:
             "Que guapo estás":
                 jump primerElogioCita
@@ -695,6 +696,64 @@ label start:
 
     "(La cita fue redonda, realmente es tu pareja ideal)"
 
+    "(Pasaron un par de semanas y todo fue como un sueño)"
+    "(Nunca habías conocido a alguien que te cuidara y se preocupara tanto por ti.)"
+    "(Te hacía sentir como en una nube, aunque no siempre todo era perfecto...)"
+
+
+    "¿Pero dónde te has metido [nombrePareja]? A este paso vamos a llegar tarde."
+
+    "*¡Ponk!*" with hpunch
+    ChicoRandom "Aiba perdon, no te había visto."
+    menu:
+        "La próxima vez mira por donde vas.":
+            jump choqueMajo
+        "No pasa nada, yo tampoco te había visto.":
+            jump choqueBorde
+    label choqueMajo:
+    ChicoRandom "Lo siento de verdad, llego tarde para ver Cosmic Frontier y voy acelerado."
+    y "¡Vas a ver Cosmic Frontier! ¡Yo también! Si tan solo [nombrePareja] no llegase tarde :("
+    jump finChoqueRandom
+    label choqueBorde:
+    ChicoRandom "¿Lo que hace llegar tarde a ver una película, eh?"
+    y "A quien se lo vas a contar aquí llevo esperando 30 minutos a [nombrePareja] que llega tardísimo."
+    jump finChoqueRandom
+    label finChoqueRandom:
+    ChicoRandom "Jajajaja es como yo entonces, no seas muy dur[genero] cuando llegue, algunos somos muy despistados."
+    y "Y tanto, jajajaja"
+    y "Ya veo ya jajajaja"
+    pElegido "¡Eh! ¿Y tú quién eres? ¡¿Estas ligando con mi novi[genero]?!"
+    ChicoRandom "Oh no no, ya me iba que llego tarde, bueno nos vemos."
+    menu:
+        "¡Hasta otra!":
+            jump despedirseRandom
+        "¡Disfruta de la peli!":
+            jump despedirseRandom
+    label despedirseRandom:
+    pElegido "¿Y ese quien era? ¿Llego tarde 15 minutos y te pones a ligar con otro?"
+    menu:
+        "¡Pero qué dices! ¡Llegaba tarde, como tu y se ha chocado conmigo, nada más!":
+            jump sinceroCelos
+        "Siiii por supuesto, llegabas tan tarde que ya me estaba buscando un reemplazo jajajaja.":
+            jump noSinceroCelos
+    label sinceroCelos:
+    pElegido "Pues no estoy yo muy segur[generoPareja] de que así sea como le sonrías y miras a un extraño que se ha chocado contigo."
+    jump finCelos
+    label noSinceroCelos:
+    pElegido "¿Me estas vacilando? A mi no me hace ni puta gracia saber que tonteas con cualquiera."
+    jump finCelos
+    
+    label finCelos:
+    menu:
+        "¿Pero me lo estás diciendo en serio? ¡Que no era nada de verdad no te preocupes, no me ha dicho ni su nombre!":
+            jump reaccionCelos
+        "Te estas emparanoiando que flipas ti[generoPareja], quitate la tontería y vamos a ver la peli que ya estará empezando":
+            jump reaccionCelos
+    label reaccionCelos:
+    pElegido "Vale, pero que sepas que esto no me ha gustado un pelo, espero que no se repita."
+    "...¿Que coño?"
+    "Ese momento fue un poco raro, no se que le pasó a [nombrePareja]."
+    "Pero el resto de la cita fue super bien, y nos encantó la película, espero que todo siga así de bien."
 
     
 
