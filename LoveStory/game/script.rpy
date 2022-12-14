@@ -63,7 +63,12 @@ label start:
     $ name = renpy.input("¿Y cual es tu nombre?")
     
     #DEBUG
-    jump PrimeraCita
+    $ pElegido = g
+    $ generoPareja = "o"
+    $ pronombrePareja = "él"
+    $ nombrePareja = "Alejandro"
+    #DEBUG
+    jump escenaCelos
 
     #--------------------------
 
@@ -679,30 +684,59 @@ label start:
     "(Ambos quedais en un restaurante de la ciudad que te ha recomendado [pronombrePareja])"
     scene bg restaurant2 with dissolve
 
-    if (generoPareja == "o"):
-        y "(Se ha puesto elegante y todo…)"
-        menu:
-            "Que guapo estás":
-                jump primerElogioCita
-            "Que raro te veo, no te pega":
-                jump noPrimerElogioCita
-        label primerElogioCita:
-        pElegido "¿Tu crees? Gracias, me ves tranquilo pero me he tirado 20 minutos pensando que ponerme jajaja"
-        jump finPrimerElogioCita
-        label noPrimerElogioCita:
-        pElegido "Oh.. La verdad es que justo lo he estrenado hoy, solo quería intentar impresionar jajaja me lo apunto para la siguiente"
-        jump finPrimerElogioCita
+    if (pElegido == p):
+        show  gabriel smile1 at center with moveinleft           
+    if (pElegido == h):
+        show  alicia smile1 at center with moveinleft   
+    if (pElegido == g):
+        show  alejandro smile1 at center with moveinleft   
+    if (pElegido == c):
+        show  alba smile1 at center with moveinleft   
+    y "(Se ha puesto elegante y todo…)"
+    menu:
+        "Que guap[generoPareja] estás":
+            jump primerElogioCita
+        "Que rar[generoPareja] te veo, no te pega":
+            jump noPrimerElogioCita
+    label primerElogioCita:
+    pElegido "¿Tu crees? Gracias, me ves tranquil[generoPareja] pero me he tirado 20 minutos pensando que ponerme jajaja"
+    jump finPrimerElogioCita
+    label noPrimerElogioCita:
+    pElegido "Oh.. La verdad es que justo lo he estrenado hoy, solo quería intentar impresionar jajaja me lo apunto para la siguiente"
+    jump finPrimerElogioCita
 
     label finPrimerElogioCita:
+    show shyGirl smile1 at superRight with moveinright
     Camarero "Muy buenas. Hoy estamos un poco llenos así que vais a tener que esperar un momento. En cuanto se vaya una mesa os meto"
+
+    if (pElegido == p):
+        show  gabriel smile2         
+    if (pElegido == h):
+        show  alicia smile2
+    if (pElegido == g):
+        show  alejandro smile2
+    if (pElegido == c):
+        show  alba smile2  
+
     pElegido "Sin problema, podemos esperar"
     pElegido "Podemos aprovechar esta espera para hacer una cosa mientras tanto.."
+    hide shyGirl smile1 with moveoutright
     pElegido "Siento que estas dos semanas has estado muy cómoda con nosotros, pero no has participado mucho y no te conocemos mucho."
+    if (pElegido == p):
+        show  gabriel smile3         
+    if (pElegido == h):
+        show  alicia delighted
+    if (pElegido == g):
+        show  alejandro smile3
+    if (pElegido == c):
+        show  alba delighted  
+
     pElegido "¿Te parece si nos hacemos la típica ronda de preguntas para conocernos mejor?"
     pElegido "Se que es un poco infantil pero así me cuentas algo de tí..."
     if (pElegido != c):
         pElegido "No me callo ni debajo del agua y a veces no dejo hablar..."
     else:
+        show alba normal
         pElegido "No suelo hablar mucho y eso dificulta más todo..."
         pElegido "No tengo buenas habilidades sociales"
     menu:
@@ -711,6 +745,16 @@ label start:
         "Vale, pero empiezas tú preguntando":
             jump empiezaElOtroRondaPreguntas
     label empiezaElOtroRondaPreguntas:
+
+    if (pElegido == p):
+        show  gabriel smile1         
+    if (pElegido == h):
+        show  alicia smile1
+    if (pElegido == g):
+        show  alejandro smile1
+    if (pElegido == c):
+        show  alba smile1  
+
     pElegido "¡Genial! Comienzo preguntando yo"
     pElegido "Hmm... ¿Te consideras extrovertid[genero] o introvertid[genero]?"
     menu:
@@ -757,6 +801,14 @@ label start:
 
     label finPrimeraPreguntaAPareja:
     pElegido "Emm... Me toca preguntar a mi"
+    if (pElegido == p):
+        show  gabriel smile2         
+    if (pElegido == h):
+        show  alicia laugh
+    if (pElegido == g):
+        show  alejandro smile2
+    if (pElegido == c):
+        show  alba laugh  
     pElegido "¿Te consideras alguien impulsivo que se deja llevar por las emociones o eres más racional y objetiv[genero]?"
     menu:
         "Impulsiv[genero] y pasional":
@@ -789,21 +841,40 @@ label start:
     jump finPasionalRacional
 
     label finPasionalRacional:
+    if (pElegido == p):
+        show  gabriel smile1         
+    if (pElegido == h):
+        show  alicia smile1
+    if (pElegido == g):
+        show  alejandro smile1
+    if (pElegido == c):
+        show  alba smile1  
     pElegido "Personalmente creo que tenemos mucha química."
     pElegido "Igual estoy algo ñoñ[genero] pero siento que es algo que puede ser duradero..."
     pElegido "Pero vamos a fluir y ver que tal."
-    pElegido "Mientras tanto vamos a comer, que ya veo al camarero venir a llamarnos"
+    pElegido "Mientras tanto vamos a comer, que ya veo a la camarera venir a llamarnos"
 
+    if (pElegido == p):
+        hide  gabriel         
+    if (pElegido == h):
+        hide  alicia
+    if (pElegido == g):
+        hide  alejandro
+    if (pElegido == c):
+        hide  alba  
+    scene bg black with dissolve
     "(La cita fue redonda, realmente es tu pareja ideal)"
 
     "(Pasaron un par de semanas y todo fue como un sueño)"
     "(Nunca habías conocido a alguien que te cuidara y se preocupara tanto por ti.)"
     "(Te hacía sentir como en una nube, aunque no siempre todo era perfecto...)"
 
-
+    label escenaCelos:
+    scene bg festival with dissolve
     "¿Pero dónde te has metido [nombrePareja]? A este paso vamos a llegar tarde."
 
     "*¡Ponk!*" with hpunch
+    show randomGuy smile1 at center
     ChicoRandom "Aiba, perdon, no te había visto."
     menu:
         "La próxima vez mira por donde vas.":
@@ -811,18 +882,35 @@ label start:
         "No pasa nada, yo tampoco te había visto.":
             jump choqueBorde
     label choqueMajo:
+    show randomGuy sad
     ChicoRandom "Lo siento de verdad, llego tarde para ver Cosmic Frontier y voy acelerado."
     y "¡Vas a ver Cosmic Frontier! ¡Yo también! Si tan solo [nombrePareja] no llegase tarde :("
     jump finChoqueRandom
     label choqueBorde:
+    show randomGuy sad
     ChicoRandom "¿Lo que hace llegar tarde a ver una película, eh?"
     y "A quien se lo vas a contar aquí llevo esperando 30 minutos a [nombrePareja] que llega tardísimo."
     jump finChoqueRandom
     label finChoqueRandom:
+    show randomGuy smile3
     ChicoRandom "Jajajaja es como yo entonces, no seas muy dur[genero] cuando llegue, algunos somos muy despistados."
-    y "Y tanto, jajajaja"
-    y "Ya veo ya jajajaja"
+    menu:
+        "Y tanto, jajajaja":
+            jump despuesRisa
+        "Ya veo ya jajajaja":
+            jump despuesRisa
+    label despuesRisa:
+    if (pElegido == p):
+        show  gabriel angry2 at superLeft with moveinleft     
+    if (pElegido == h):
+        show  alicia angry at superLeft with moveinleft 
+    if (pElegido == g):
+        show  alejandro angry2 at superLeft with moveinleft 
+    if (pElegido == c):
+        show  alba angry at superLeft with moveinleft 
+
     pElegido "¡Eh! ¿Y tú quién eres? ¡¿Estas ligando con mi novi[genero]?!"
+    show randomGuy normal
     ChicoRandom "Oh no no, ya me iba que llego tarde, bueno nos vemos."
     menu:
         "¡Hasta otra!":
@@ -830,6 +918,14 @@ label start:
         "¡Disfruta de la peli!":
             jump despedirseRandom
     label despedirseRandom:
+    if (pElegido == p):
+        show  gabriel angry1         
+    if (pElegido == h):
+        show  alicia annoyed
+    if (pElegido == g):
+        show  alejandro angry1
+    if (pElegido == c):
+        show  alba annoyed  
     pElegido "¿Y ese quien era? ¿Llego tarde 15 minutos y te pones a ligar con otro?"
     menu:
         "¡Pero qué dices! ¡Llegaba tarde, como tu y se ha chocado conmigo, nada más!":
@@ -840,7 +936,7 @@ label start:
     pElegido "Pues no estoy yo muy segur[generoPareja] de que así sea como le sonrías y miras a un extraño que se ha chocado contigo."
     jump finCelos
     label noSinceroCelos:
-    pElegido "¿Me estas vacilando? A mi no me hace ni puta gracia saber que tonteas con cualquiera."
+    pElegido "¿Me estas vacilando? A mi no me hace gracia saber que tonteas con cualquiera."
     jump finCelos
     
     label finCelos:
@@ -850,20 +946,40 @@ label start:
         "Te estas emparanoiando que flipas ti[generoPareja], quitate la tontería y vamos a ver la peli que ya estará empezando":
             jump reaccionCelos
     label reaccionCelos:
+    if (pElegido == p):
+        show  gabriel normal         
+    if (pElegido == h):
+        show  alicia normal
+    if (pElegido == g):
+        show  alejandro normal
+    if (pElegido == c):
+        show  alba normal
     pElegido "Vale, pero que sepas que esto no me ha gustado un pelo, espero que no se repita."
-    "...¿Que coño?"
+    "...¿Que narices?"
+    scene bg black with dissolve
     "Ese momento fue un poco raro, no se que le pasó a [nombrePareja]."
     "Pero el resto de la cita fue super bien, y nos encantó la película, espero que todo siga así de bien."
 
-    
+    scene bg room
     #Escena control de ropa
     label ControlRopa:
     "(Unos días más tarde ibas a salir de fiesta con tus nuevos amigos)"
     "(Hacía mucho que no salías así que te hacía mucha ilusión y compraste un conjunto nuevo solo para esa noche.)"
 
+    show lucas smile2 at centerRight with moveinleft
     b "Buah, tengo muchísimas ganas de salir esta noche, va a ser espectacular."
+
+    if (pElegido == p):
+        show  gabriel normal at centerLeft with moveinleft         
+    if (pElegido == h):
+        show  alicia normal at centerLeft with moveinleft  
+    if (pElegido == g):
+        show  alejandro normal at centerLeft with moveinleft  
+    if (pElegido == c):
+        show  alba normal at centerLeft with moveinleft
     pElegido "Pues a mi no me hace especial ilusión."
     pElegido "Estoy algo cansad[generoPareja] y no me apetece que salgamos los 3 juntos."
+    show lucas smile3
     b "Pues bien que te gustaba antes de empezar a salir con [name] jajaja."
     pElegido "Jajajaja, pero lo dicho, ya estoy con [name], no necesito a nadie más."
     b "Bueno puedes salir para pasar un buen rato con tus amigos, que salir de fiesta no es solo para ligar, ¿a ti no te apetece [name]?"
@@ -874,20 +990,48 @@ label start:
             jump noGanasDeSalir
     
     label ganasDeSalir:
+    show lucas laugh
     b "¡Así se habla!"
+    if (pElegido == p):
+        show  gabriel angry1    
+    if (pElegido == h):
+        show  alicia smug
+    if (pElegido == g):
+        show  alejandro angry1
+    if (pElegido == c):
+        show  alba smug
     pElegido "Pues no se porque tienes tantas ganas de ir."
     pElegido "Si siempre que salimos a beber acabas haciendo el ridículo jajaja"
     pElegido "Pero bueno, si hay que ir se va cielo, allá tú."
     jump finGanasDeSalir
     label noGanasDeSalir:
+    show lucas sad
     b "Venga yaa, sois unos frikis, si va a ser increíble."
     pElegido "Oye pero si no quieres no vamos, ¿eh?"
+    show lucas angry1
     b "No, eso si que no, si faltais no os lo perdono. ME NIEGO."
     jump finGanasDeSalir
     label finGanasDeSalir:
+    show lucas smile1
     b "El caso, ¿ya sabéis lo que os vais a poner?"
+    if (pElegido == p):
+        show  gabriel normal    
+    if (pElegido == h):
+        show  alicia normal
+    if (pElegido == g):
+        show  alejandro normal
+    if (pElegido == c):
+        show  alba normal
     pElegido "Yo iré normalit[generoPareja], no voy en chándal porque se está lavando jajaja."
     b "Jajaja ¿Y tu [name]? ¿Te pondrás lo que te compraste el otro día?"
+    if (pElegido == p):
+        show  gabriel surprised    
+    if (pElegido == h):
+        show  alicia shocked
+    if (pElegido == g):
+        show  alejandro surprised
+    if (pElegido == c):
+        show  alba shocked
     pElegido "Ah, ¿te compraste un outfit? Cómo es que no me lo has enseñado."
     menu:
         "Quería sorprenderte...":
@@ -895,7 +1039,16 @@ label start:
         "No pensé que necesitase enseñartelo antes supongo":
             jump queriaSorprenderte
     label queriaSorprenderte:
+    if (pElegido == p):
+        show  gabriel smirk    
+    if (pElegido == h):
+        show  alicia smug
+    if (pElegido == g):
+        show  alejandro smirk
+    if (pElegido == c):
+        show  alba smug
     pElegido "Bueno pues ya enséñamelo, ¿no?"
+    show lucas smile3
     b "Mira, es este... ¡Es una pasada! Vas a ser la persona más atractiva de toda la fiesta."
     pElegido "Pero esto... ¿Tú te has mirado en un espejo? Si vas hech[genero] un cuadro"
     pElegido "Jajaja"
@@ -906,25 +1059,75 @@ label start:
         "No sé, me gustaba como me quedaba, no veo el problema.":
             jump opinionTraje
     label opinionTraje:
+    if (pElegido == p):
+        show  gabriel normal    
+    if (pElegido == h):
+        show  alicia normal
+    if (pElegido == g):
+        show  alejandro normal
+    if (pElegido == c):
+        show  alba normal
     pElegido "Quiero decir"
     pElegido "No te ves tan mal"
     pElegido "Pero parece que solo quieres llamar la atención, ¿no?"
     pElegido "No hace falta que todo el mundo de la fiesta te conozca."
 
+    show lucas smile2
     b "¿Qué más da? Ve a la fiesta como te dé la gana y punto."
+    if (pElegido == p):
+        show  gabriel smile3    
+    if (pElegido == h):
+        show  alicia smile2
+    if (pElegido == g):
+        show  alejandro smile3
+    if (pElegido == c):
+        show  alba smile2
     pElegido "Bueeeno venga, un día es un día supongo..."
+    if (pElegido == p):
+        show  gabriel angry1    
+    if (pElegido == h):
+        show  alicia smug
+    if (pElegido == g):
+        show  alejandro angry1
+    if (pElegido == c):
+        show  alba smug
     pElegido "Pero ya hablaremos cuando volvamos de la fiesta"
     pElegido "No me gusta que tomes decisiones sin consultarmelo antes."
+    if (pElegido == p):
+        show  gabriel smile3    
+    if (pElegido == h):
+        show  alicia smile2
+    if (pElegido == g):
+        show  alejandro smile3
+    if (pElegido == c):
+        show  alba smile2
     pElegido "Te quiero mucho"
     b "¡FIESTA, FIESTA, FIESTA!"
 
     #Cambio de escena
-
-    #(Pantalla en negro, cambio de escena en casa)
+    scene bg black with dissolve
+    "(La fiesta estuvo bien, nos echamos unas risas)"
+    "(Pasó una semana bastante rutinaria y aburrida)"
     "(Los padres de [nombrePareja] se han ido un par de dias a la casa antigua por el papeleo de la mudanza.)"
     "(Así que [nombrePareja] te ha invitado a pasar la noche y ver una peli en su nueva casa)"
+    if (pElegido == p):
+        show  gabriel smile1    
+    if (pElegido == h):
+        show  alicia smile1
+    if (pElegido == g):
+        show  alejandro smile1
+    if (pElegido == c):
+        show  alba smile1
 
     pElegido "Buenas cielo, ¿cómo está mi niñ[genero]?"
+    if (pElegido == p):
+        show  gabriel smile2    
+    if (pElegido == h):
+        show  alicia smile2
+    if (pElegido == g):
+        show  alejandro smile2
+    if (pElegido == c):
+        show  alba smile2
     pElegido "¿List[genero] para la maratón de pelis de terror?"
     menu:
         "Em... prefiero que sean de otro género porfi, no me gusta el terror":
@@ -932,11 +1135,35 @@ label start:
         "¿Y si en vez de peli nos saltamos ese paso y vamos a lo importante? Jejeje":
             jump noTerrorHorny
     label noTerror:
+    if (pElegido == p):
+        show  gabriel normal    
+    if (pElegido == h):
+        show  alicia normal
+    if (pElegido == g):
+        show  alejandro normal
+    if (pElegido == c):
+        show  alba normal
     pElegido "¿Otra vez vamos a tener esta conversación?"
     pElegido "Te dije que te invitaba solo si la peli era de terror"
+    if (pElegido == p):
+        show  gabriel angry1    
+    if (pElegido == h):
+        show  alicia angry
+    if (pElegido == g):
+        show  alejandro angry1
+    if (pElegido == c):
+        show  alba angry
     pElegido "Nunca me escuchas y al final el que se jode siempre soy yo."
     y "¿Me vas a hacer irme a casa entonces?"
     pElegido "Pues ya supongo que no"
+    if (pElegido == p):
+        show  gabriel normal    
+    if (pElegido == h):
+        show  alicia normal
+    if (pElegido == g):
+        show  alejandro normal
+    if (pElegido == c):
+        show  alba normal
     pElegido "Que luego tus amigos te dicen que el malo soy yo cuando sabes perfectamente que te quiero y que no es así."
     pElegido "Pero bueno, pasa y ahora vemos que hacemos, alguna solucion habrá."
 
@@ -945,6 +1172,14 @@ label start:
     jump finTerror
 
     label noTerrorHorny:
+    if (pElegido == p):
+        show  gabriel angry1    
+    if (pElegido == h):
+        show  alicia angry1
+    if (pElegido == g):
+        show  alejandro angry1
+    if (pElegido == c):
+        show  alba angry1
     if (generoPareja == "a"):
         pElegido "Pero te dije que te vinieras mon[genero]"
         pElegido "Ya sabes que me gusta mucho verte maquillada y guapa, y has venido como si estuvieras de resaca..."
@@ -957,14 +1192,29 @@ label start:
     jump finTerror
 
     label finTerror:
-
+    if (pElegido == p):
+        show  gabriel normal    
+    if (pElegido == h):
+        show  alicia normal
+    if (pElegido == g):
+        show  alejandro normal
+    if (pElegido == c):
+        show  alba normal
     pElegido "Solo te pedí 1 cosa y no me has hecho ni caso"
     pElegido "Como seas así con tus amigos, normal que estés apartada del grupo"
-    pElegido "Al menos compénsame esta noche en la habitacion, ¿no? Jajaja"
+    if (pElegido == p):
+        show  gabriel smirk    
+    if (pElegido == h):
+        show  alicia smug
+    if (pElegido == g):
+        show  alejandro smirk
+    if (pElegido == c):
+        show  alba smug
+    pElegido "Pero bueno al menos compénsame esta noche en la habitacion, ¿no? Jajaja"
     pElegido "Vamos ahora y luego hablamos jejeje..."
 
+    scene bg black with dissolve
     "(Al final pasasteis una buena noche, cada vez con más confianza y cariño, más acostumbrados el uno al otro, empezando a desarrollar una rutina de pareja)"
-
     # Finaliza el juego:
 
     return
