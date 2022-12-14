@@ -802,11 +802,10 @@ label start:
     pElegido "No se, pareciese que quieres que todo el mundo se fije en ti, tampoco hace falta tanto."
     menu:
         "Pero... pensé que te gustaría...":
-            jump teAfectaOpinionTraje
+            jump opinionTraje
         "No sé, me gustaba como me quedaba, no veo el problema.":
-            jump noTeAfectaOpinionTraje
-    label teAfectaOpinionTraje:
-    label noTeAfectaOpinionTraje:
+            jump opinionTraje
+    label opinionTraje:
     pElegido "Quiero decir"
     pElegido "No te ves tan mal"
     pElegido "Pero parece que solo quieres llamar la atención, ¿no?"
@@ -821,6 +820,50 @@ label start:
 
     #Cambio de escena
 
+    #(Pantalla en negro, cambio de escena en casa)
+    "(Los padres de [nombrePareja] se han ido un par de dias a la casa antigua por el papeleo de la mudanza.)"
+    "(Así que [nombrePareja] te ha invitado a pasar la noche y ver una peli en su nueva casa)"
+
+    pElegido "Buenas cielo, ¿cómo está mi niñ[genero]?"
+    pElegido "¿List[genero] para la maratón de pelis de terror?"
+    menu:
+        "Em... prefiero que sean de otro género porfi, no me gusta el terror":
+            jump noTerror
+        "¿Y si en vez de peli nos saltamos ese paso y vamos a lo importante? Jejeje":
+            jump noTerrorHorny
+    label noTerror:
+    pElegido "¿Otra vez vamos a tener esta conversación?"
+    pElegido "Te dije que te invitaba solo si la peli era de terror"
+    pElegido "Nunca me escuchas y al final el que se jode siempre soy yo."
+    y "¿Me vas a hacer irme a casa entonces?"
+    pElegido "Pues ya supongo que no"
+    pElegido "Que luego tus amigos te dicen que el malo soy yo cuando sabes perfectamente que te quiero y que no es así."
+    pElegido "Pero bueno, pasa y ahora vemos que hacemos, alguna solucion habrá."
+
+    "(Pasamos al salón)"
+    pElegido "Bueno sea como sea estás aquí"
+    jump finTerror
+
+    label noTerrorHorny:
+    if (generoPareja == "a"):
+        pElegido "Pero te dije que te vinieras mon[genero]"
+        pElegido "Ya sabes que me gusta mucho verte maquillada y guapa, y has venido como si estuvieras de resaca..."
+        y "Cariño vengo a pasar la noche contigo no al galardón de los Goya"
+    if (generoPareja == "o"):
+        pElegido "Pero te dije que hoy no fueras a hacer ejercicio."
+        pElegido "Ya sabes que me gusta mucho como estás ahora y solo me has hecho quedarme esperandote como un estupido..."
+        y "Cariño ya sabes que el ejercicio es algo que me gusta y me relaja."
+
+    jump finTerror
+
+    label finTerror:
+
+    pElegido "Solo te pedí 1 cosa y no me has hecho ni caso"
+    pElegido "Como seas así con tus amigos, normal que estés apartada del grupo"
+    pElegido "Al menos compénsame esta noche en la habitacion, ¿no? Jajaja"
+    pElegido "Vamos ahora y luego hablamos jejeje..."
+
+    "(Al final pasasteis una buena noche, cada vez con más confianza y cariño, más acostumbrados el uno al otro, empezando a desarrollar una rutina de pareja)"
 
     # Finaliza el juego:
 
