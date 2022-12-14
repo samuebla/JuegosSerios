@@ -63,7 +63,7 @@ label start:
     $ name = renpy.input("¿Y cual es tu nombre?")
     
     #DEBUG
-    jump pijamada
+    jump PrimeraCita
 
     #--------------------------
 
@@ -119,15 +119,12 @@ label start:
     y "¡Guau, este instituto es gigante!"
     show lucas smile3 at superLeft with moveinleft
     b "Dejate de tantas vistas que llegamos tarde, quedamos en el recreo en la entrada y te presento a mi grupo de amigos"
-    #BUSCAR ALGO DE MOVIMIENTO Y NO TELETRANSPORTACION
     show lucas smile3 at superRight with move
     b "¡Nos vemos en clase!"
     hide lucas smile3 with moveoutright
-    #SONIDO DE ALGUIEN CORRIENDO AAA
     y "¡OYE!"
     scene bg black with pixellate
     "(Tras varios minutos consigues encontrar el aula justo cuando suena el timbre)"
-    #SONIDO TIMBRE AAA
     scene bg lecturehall with dissolve
     "*Riiing*"
 
@@ -430,16 +427,22 @@ label start:
             jump respuestaBorde
         
     #FALTA AVANZAR A PARTIR DE AQUI CARAS Y DE TODO
-    label akwardSilence:
+    label respuestaBorde:
     h "Jajajaj no se corta ni un pelo"
     c "Bien tirada"
     t "Jajajajaja"
     b "Ahora que veo que estamos bien activos vamos al salón un rato y cuando tengamos sueño nos subimos"
     jump risasSolucionado
-    label respuestaBorde:
+    label akwardSilence:
+    show lucas laugh pajama
     b "Vale parejita autorregulame ésta"
+    show lucas smirk pajama
     b "*fart*" with hpunch
+    show gabriel angry2 pajama
+    show alejandro surprised pajama
+    show alba shocked pajama
     p "¡LUCAS!"
+    show alicia angry pajama
     h "¡EVACUACIÓN, TODOS AL SALÓN DE INMEDIATO!"
     jump risasSolucionado
     label risasSolucionado:
@@ -447,6 +450,7 @@ label start:
 
     #Transicion al salon
     scene bg living room
+    show lucas smile1 pajama at center
     b "Pues hoy vamos a innovar un poco y vamos a jugar a Mechero"
     menu:
         "Yo no fumo":
@@ -454,8 +458,10 @@ label start:
         "¿Mechero?":
             jump siFuma
     label noFuma:
+    show lucas smile3 pajama
     b "No seas bob[genero] [name]"
     label siFuma:
+    show lucas smirk pajama
     b "En Mechero alguien te hace una pregunta al oído, la respuesta a las preguntas siempre es una persona."
     b "Solo puedes responder a la pregunta elegiendo a una pregunta que esté en esta habitación."
     b "Le pasas el mechero a quien hayas elegido y se tira una moneda."
@@ -469,30 +475,55 @@ label start:
             jump siFuma
     
     label expMecheroDone:
+    show alicia smile2 pajama at centerRight with moveinright
     h "Bueno pues empiezo yo que para algo es mi casa jajaj, y voy a preguntar a..."
+    show alba shocked pajama at superRight with moveinright
     h "Alba"
+    show alba smug pajama
     "*Susurros*"
     "(Alba le pasa el mechero a Alejandro)"
+    show alba smile2 pajama
+    show alicia smile2 pajama
+    show alejandro angry1 pajama at centerLeft with moveinleft
     g "¿Que? Como salga cara y me hayas señalado por algo feo te vas a enterar boba"
+    show alejandro surprised pajama
     "*Sale cara*"
+    show alicia smug pajama
     h "Oh oh"
+    show alejandro smirk pajama
     g "¿Y bien?"
+    show alba annoyed pajama
     c "Me ha preguntado que si solo pudiera escoger a una persona para sobrevivir a una apocalipsis zombie a quién escogería"
+    show alejandro laugh pajama
     g "Aww, ¿es porque estoy más fuerte que el resto?"
+    show alba smug pajama
     c "Sí, por lo que tu carne tiene que estar mucho más sabrosa"
+    show gabriel laugh pajama at superLeft with moveinleft
+    show alicia laugh pajama
+    show alba laugh pajama
+    show lucas laugh pajama
     b "Puajajajaja"
     h "JAJAJA Eso si que no me lo veia venir"
-    g "???????"
-
+    show alejandro smile1 pajama
     g "En fin, ahora me toca preguntar y escojo a Gabriel"
+    show gabriel smirk pajama
+    show alba smile pajama
+    show lucas smile1 pajama
+    show alicia smile pajama
     "*Susurros*"
+    show lucas surprised pajama
     "(Gabriel le pasa el mechero a Lucas)"
+    show gabriel surprised pajama
     "(Tiran el dado y sale cruz)"
+    show lucas sad pajama
+    show gabriel smile3 pajama
     b "¡Oh venga ya! Nunca me entero de por qué me señalais"
     p "Para la proxima será jajaja"
     p "Hoy te quedas con la duda"
+    show lucas laugh pajama
     b "Bueno pues me toca, ¡y voy a preguntar a [name]!"
-    "*Gabriel te dice al oido:*"
+    show gabriel smile1 pajama
+    "*Gabriel te susurra al oido*"
     b "¿Con quién de aquí tendrías una relación amorosa?"
     menu:
         b "¿Quién te ha gustado más?"
@@ -522,32 +553,89 @@ label start:
             jump partnerChosen
 
     label partnerChosen:
-    pElegido "Más te vale tirar cara Bestie"
+    if(pElegido == c):
+        show alba delighted pajama
+    if(pElegido == h):
+        show alicia delighted pajama
+    if(pElegido == p):
+        show gabriel smirk pajama
+    if(pElegido == g):
+        show alejandro smirk pajama
+
+    pElegido "Más te vale tirar cara Lucas"
     "(Sale cara)"
+
+    show lucas surprised pajama
     b "Cagué, jaja."
     pElegido "¿Y bien?"
+
+    show lucas smile2 pajama
     b "Le pregunté quien le gustaba más de aquí."
     b "Lleva ya una semana, claramente se habrá decantado por alguien, ¿no?"
     if (pElegido == c):
+        show alba smile pajama
         c "Oh, gra, gracias supongo. Pensaba que estaba demasiado borde contigo, me alegro que te guste mi personalidad"
     
     if (pElegido == h):
+        show alicia laugh pajama
         h "¿Ay en serio? Pues a mi me pareces un encanto de persona, nunca nadie se suele fijar en mí porque me ven demasiado inocente..."
+        show alicia smile pajama
     
     if (pElegido == g):
+        show alejandro smirk pajama
         g "Ay que lind[genero], tú me pareciste monisim[genero] desde el primer dia que nos presentaron..."
         g "Igual congeniamos, jeje"
+        show alejandro smile1 pajama
     
     if (pElegido == p):
+        show alejandro angry1 pajama
         g "Y claro, va y escoge al chico delgado del mullet, ¿no?"
+        show alejandro normal pajama
+        show gabriel smile2 pajama
         p "Que me seleccione a mi antes que un chico fibraro con una weekly routine de gym y gym es completamente normal Alejandro"
         p "Eres más que un chico con músculos pero tienes que dejar de centrarte en eso todo el rato."
+        show gabriel smile3 pajama
         p "Por donde iba, me alegra saberlo [name], he disfrutado mucho de tu compañía esta semana yo también..."
+        show gabriel smile1 pajama
     
+    show lucas normal pajama
     b "*Bostezo*"
     b "Bueno, ya es muy tarde, ¿no? Igual es hora de irse a la cama y enfriar un poco esto."
 
-    h "Si, yo estoy ya muy cansada..."
+    if (pElegido != h):
+        show alicia sleepy pajama
+        h "Si, yo estoy ya muy cansada..."
+    if (pElegido != c):
+        show alicia sleepy pajama
+        c "Yo estoy muerta de sueño..."
+
+    if (pElegido == h):
+        hide alba with moveoutleft
+        hide lucas with moveoutleft
+        hide alejandro with moveoutleft
+        hide gabriel with moveoutleft
+        show alicia smile pajama
+    
+    if (pElegido == c):
+        hide alicia with moveoutleft
+        hide lucas with moveoutleft
+        hide alejandro with moveoutleft
+        hide gabriel with moveoutleft
+        show alba smile pajama
+
+    if (pElegido == p):
+        hide alba with moveoutright
+        hide lucas with moveoutright
+        hide alejandro with moveoutright
+        hide alicia with moveoutright
+        show gabriel smile1 pajama
+
+    if (pElegido == g):
+        hide alba with moveoutright
+        hide lucas with moveoutright
+        hide alicia with moveoutright
+        hide gabriel with moveoutright
+        show alejandro smile1 pajama
 
     pElegido "Psst, ¿te gustaría quedarnos un rato hablando? Me gustaría hablar contigo de lo que has mencionado antes..."
     menu:
@@ -570,14 +658,26 @@ label start:
             jump siIrCita
 
     label siIrCita:
-    pElegido "¡Genial! Nos vemos la semana que viene"
+    if (pElegido == h):
+        show alicia delighted pajama
+    
+    if (pElegido == c):
+        show alba delighted pajama
 
+    if (pElegido == p):
+        show gabriel laugh pajama
+
+    if (pElegido == g):
+        show alejandro laugh pajama
+    pElegido "¡Genial! Nos vemos la semana que viene"
 
     #PRIMERA CITA
     label PrimeraCita:
+    scene bg black with dissolve
 
     "(Pasas la semana en el instituto, relacionandote cada vez más con [nombrePareja] y llega el día de la cita)"
     "(Ambos quedais en un restaurante de la ciudad que te ha recomendado [pronombrePareja])"
+    scene bg restaurant2 with dissolve
 
     if (generoPareja == "o"):
         y "(Se ha puesto elegante y todo…)"
@@ -797,7 +897,7 @@ label start:
     label queriaSorprenderte:
     pElegido "Bueno pues ya enséñamelo, ¿no?"
     b "Mira, es este... ¡Es una pasada! Vas a ser la persona más atractiva de toda la fiesta."
-    pElegido "Pero esto... ¿Tú te has mirado en un espejo?"
+    pElegido "Pero esto... ¿Tú te has mirado en un espejo? Si vas hech[genero] un cuadro"
     pElegido "Jajaja"
     pElegido "No se, pareciese que quieres que todo el mundo se fije en ti, tampoco hace falta tanto."
     menu:
