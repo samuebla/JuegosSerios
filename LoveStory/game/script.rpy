@@ -11,7 +11,7 @@ define g = Character("Alejandro")
 define t = Character("Todos")
 
 #Personajes secundarios
-define Camarero = Character("Camarero")
+define Camarero = Character("Camarera")
 define ChicoRandom = Character("Chico con sudadera")
 
 transform superLeft:
@@ -55,10 +55,19 @@ label start:
             $ genero = "a"
             $ pronombre = "ella"
 
+    label nombre:
     $ name = renpy.input("¿Y cual es tu nombre?")
+    if(name == ""):
+        jump emptyName
+    else:
+        jump startScene
   
-    #--------------------------
+    label emptyName:
+    "No puedes tener un nombre vacio"
+    jump nombre
 
+    #--------------------------
+    label startScene:
     scene bg train tunnel with dissolve
 
     "Comienza una nueva vida, tras un largo viaje y mucho cambio. Tuvimos que mudarnos a la ciudad tras que Papá perdiera su trabajo"
@@ -101,7 +110,7 @@ label start:
     y "Me he mudado a High Peaks ahora por movidas familiares, así que supongo que somos compañeros de clase"
     show lucas smile2 at center
     b "¿En serio? ¡Eso es genial! La gente de High Peaks no tiene nada que ver con la escoria de nuestro antiguo instituto, ¿Recuerdas?"
-    y "Como no me voy a acordar…tu llevas 2 años aqui pero yo me he mudado esta semana jajaja."
+    y "Como no me voy a acordar…tu llevas 2 años aquí pero yo me he mudado esta semana jajaja."
     b "¡Venga no hay tiempo que perder! Que vamos fatal de tiempo"
 
     scene bg old school with pixellate
@@ -135,7 +144,7 @@ label start:
     label cuidadoAlicia:
     show alicia sad at center with move
     h "¡Ay jo lo siento! Perdona, no te había visto."
-    h "¿Te he hecho daño? Ay lo siento mucho joe, no era mi intención… Toma"
+    h "¿Te he hecho daño? Ay lo siento mucho joe, no era mi intención…Toma"
     hide alicia sad
     show alicia smile1 at center
     "(Recibiste Tirita de Alicia)"
@@ -145,11 +154,11 @@ label start:
 
     label perdonAlicia:
     show alicia smile1 at center with move
-    h "¡Ay no seas boba! Soy yo que estoy siempre en los mundos de yupi y nunca me entero de nada. Toma, como un simbolo de paz jajaja"
+    h "¡Ay no seas bob[genero]! Soy yo que estoy siempre en los mundos de yupi y nunca me entero de nada. Toma, como un símbolo de paz jajaja"
     hide alicia smile1
     show alicia smile2 at center
     "Recibiste Tirita de Alicia."
-    b "Alicia no tenemos tiempo para tus ñoñerias."
+    b "Alicia no tenemos tiempo para tus ñoñerías."
     hide alicia smile2
     jump conocidoAlicia
 
@@ -203,7 +212,7 @@ label start:
 
     b "Lavarse el pelo con la lluvia"
     show gabriel angry2 at superRight
-    p "Pero bueno quieres que [name] sea nuestra amiga o estás intentando que no se acerque"
+    p "Pero bueno quieres que [name] sea nuestra amig[genero] o estás intentando que no se acerque"
     show gabriel smile2 at superRight
     p "No le escuches, llamame Gabri, aunque todos me llamen Iluminao, adoro los animalitos y el campito aunque estemos en una ciudad..."
     menu:
@@ -266,7 +275,7 @@ label start:
     hide alicia delighted with moveoutright
     show alejandro sad at center
     g "¡¡¡Recuerda que no tenga azucar!!!"
-    b "Que sí gymbro, su madre ya sabe que tiene que hacer una limonada sosa como siempre jajaja"
+    b "Que sí Alejandro, su madre ya sabe que tiene que hacer una limonada sosa como siempre jajaja"
     b "Bueno [name] pues recuerda que el viernes quedamos a las 20 donde el instituto para ir a casa de Alicia, ¿Vale?"
     menu:
         "Genial":
@@ -303,7 +312,7 @@ label start:
     g "¿QUÉEE?"
     show lucas smile1 at superLeft with moveinleft
     show alejandro sad
-    p "Haz el favor de disfrutar de la cena y ya te preocuparás del ejercicio mañana, que la mami de Happy Flower lo ha hecho todo casero con todo su amor y no tiene aditivos ni mierdas"
+    p "Haz el favor de disfrutar de la cena y ya te preocuparás del ejercicio mañana, que la mami de Alicia lo ha hecho todo casero con todo su amor y no tiene aditivos ni mierdas"
     c "Peores son los batidos de proteinas con cosas raras que te metes al cuerpo"
     show lucas laugh
     show alicia laugh
@@ -323,7 +332,7 @@ label start:
     show alba shocked at superRight
     show alejandro surprised at centerRight
     show lucas smirk
-    b "Pues más para mí jeje, Happy flower tenía también sobras así que no te preocupes"
+    b "Pues más para mí jeje, Alicia tenía también sobras así que no te preocupes"
     c "Las croquetas de la madre de Alicia son un manjar que no todo el mundo sabe apreciar"
     show alejandro sad
     show alba smug
@@ -381,7 +390,7 @@ label start:
     show alejandro smirk
     show alba smile1
     show alicia smile1
-    g "Una chica con iniciativa. Así nos conoces mas a todos nosotros, ¿no?"
+    g "Una persona con iniciativa. Así nos conoces mas a todos nosotros, ¿no?"
     show alba smug
     c "Creo que con solo una semana aquí ya nos tiene calados a todos jajaja"
 
@@ -392,7 +401,7 @@ label start:
     b "¡Pues a devorar las croquetas y luego nos subimos a las habitaciones, nos ponemos el pijamita y jugamos hasta que nos durmamos!"
     scene bg black with pixellate
     "*Ñam ñam ñam*"
-    #PONER SONIDITO DE COMER AAAAAAAAAAAAAAAAAAAAA
+
     jump pijamada
 
     label pijamada:
@@ -708,7 +717,7 @@ label start:
     pElegido "Sin problema, podemos esperar"
     pElegido "Podemos aprovechar esta espera para hacer una cosa mientras tanto.."
     hide shygirl smile1 with moveoutright
-    pElegido "Siento que estas dos semanas has estado muy cómoda con nosotros, pero no has participado mucho y no te conocemos mucho."
+    pElegido "Siento que estas dos semanas has estado muy cómod[genero] con nosotros, pero no has participado mucho y no te conocemos mucho."
     if (pElegido == p):
         show  gabriel smile3         
     if (pElegido == h):
@@ -765,9 +774,9 @@ label start:
     if (pElegido == h):
         pElegido "Se nota que al menos en confianza hablas más, eres un solecito una vez se te conoce"
     if (pElegido == c):
-        pElegido "Estamos igual entonces, entre introvertid[genero]s nos la pasamos mejor aunque la gente se piense que quedamos y no hablamos nunca jajajaja"
+        pElegido "Estamos igual entonces, entre gente introvertida nos la pasamos mejor aunque la gente se piense que quedamos y no hablamos nunca jajajaja"
     if (pElegido == p):
-        pElegido "Estamos igual entonces, entre introvertid[genero]s nos la pasamos mejor aunque la gente se piense que quedamos y no hablamos nunca jajajaja"
+        pElegido "Estamos igual entonces, entre gente introvertida nos la pasamos mejor aunque la gente se piense que quedamos y no hablamos nunca jajajaja"
     jump finExtrovertidaIntrovertida
 
     label finExtrovertidaIntrovertida:
