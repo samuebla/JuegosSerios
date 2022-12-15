@@ -35,19 +35,14 @@ transform centerLeft:
 transform centerRight:
     xalign 0.75
     yalign 0.45
+transform topImages:
+    xalign 0.5
+    yalign 0.0
+
 
 # El juego comienza aquí.
 
 label start:
-
-    # Muestra una imagen de fondo: Aquí se usa un marcador de posición por
-    # defecto. Es posible añadir un archivo en el directorio 'images' con el
-    # nombre "bg room.png" or "bg room.jpg" para que se muestre aquí.
-
-    #DEBUGGING AAAAA QUITAR ESTAS LINEAS
-    # $ genero = "o"
-    # $ pronombre = "el"
-    # $ name = "Marica Chonda"
 
     #SELECCION PRONOMBRES#
     scene bg black with dissolve
@@ -61,15 +56,7 @@ label start:
             $ pronombre = "ella"
 
     $ name = renpy.input("¿Y cual es tu nombre?")
-    
-    #DEBUG
-    $ pElegido = g
-    $ generoPareja = "o"
-    $ pronombrePareja = "él"
-    $ nombrePareja = "Alejandro"
-    #DEBUG
-    jump escenaCelos
-
+  
     #--------------------------
 
     scene bg train tunnel with dissolve
@@ -706,7 +693,7 @@ label start:
     jump finPrimerElogioCita
 
     label finPrimerElogioCita:
-    show shyGirl smile1 at superRight with moveinright
+    show shygirl smile1 at superRight with moveinright
     Camarero "Muy buenas. Hoy estamos un poco llenos así que vais a tener que esperar un momento. En cuanto se vaya una mesa os meto"
 
     if (pElegido == p):
@@ -720,7 +707,7 @@ label start:
 
     pElegido "Sin problema, podemos esperar"
     pElegido "Podemos aprovechar esta espera para hacer una cosa mientras tanto.."
-    hide shyGirl smile1 with moveoutright
+    hide shygirl smile1 with moveoutright
     pElegido "Siento que estas dos semanas has estado muy cómoda con nosotros, pero no has participado mucho y no te conocemos mucho."
     if (pElegido == p):
         show  gabriel smile3         
@@ -874,7 +861,7 @@ label start:
     "¿Pero dónde te has metido [nombrePareja]? A este paso vamos a llegar tarde."
 
     "*¡Ponk!*" with hpunch
-    show randomGuy smile1 at center
+    show randomguy smile1 at center
     ChicoRandom "Aiba, perdon, no te había visto."
     menu:
         "La próxima vez mira por donde vas.":
@@ -882,17 +869,17 @@ label start:
         "No pasa nada, yo tampoco te había visto.":
             jump choqueBorde
     label choqueMajo:
-    show randomGuy sad
+    show randomguy sad
     ChicoRandom "Lo siento de verdad, llego tarde para ver Cosmic Frontier y voy acelerado."
     y "¡Vas a ver Cosmic Frontier! ¡Yo también! Si tan solo [nombrePareja] no llegase tarde :("
     jump finChoqueRandom
     label choqueBorde:
-    show randomGuy sad
+    show randomguy sad
     ChicoRandom "¿Lo que hace llegar tarde a ver una película, eh?"
     y "A quien se lo vas a contar aquí llevo esperando 30 minutos a [nombrePareja] que llega tardísimo."
     jump finChoqueRandom
     label finChoqueRandom:
-    show randomGuy smile3
+    show randomguy smile3
     ChicoRandom "Jajajaja es como yo entonces, no seas muy dur[genero] cuando llegue, algunos somos muy despistados."
     menu:
         "Y tanto, jajajaja":
@@ -909,8 +896,8 @@ label start:
     if (pElegido == c):
         show  alba angry at superLeft with moveinleft 
 
-    pElegido "¡Eh! ¿Y tú quién eres? ¡¿Estas ligando con mi novi[genero]?!"
-    show randomGuy normal
+    pElegido "¡Eh! ¿Y tú quién eres? ¡¿Estas ligando con mi pareja?!"
+    show randomguy normal
     ChicoRandom "Oh no no, ya me iba que llego tarde, bueno nos vemos."
     menu:
         "¡Hasta otra!":
@@ -918,6 +905,7 @@ label start:
         "¡Disfruta de la peli!":
             jump despedirseRandom
     label despedirseRandom:
+    hide randomguy with moveoutright
     if (pElegido == p):
         show  gabriel angry1         
     if (pElegido == h):
@@ -927,6 +915,14 @@ label start:
     if (pElegido == c):
         show  alba annoyed  
     pElegido "¿Y ese quien era? ¿Llego tarde 15 minutos y te pones a ligar con otro?"
+    if (pElegido == p):
+        show  gabriel angry2 at center with moveinleft     
+    if (pElegido == h):
+        show  alicia angry at center with moveinleft 
+    if (pElegido == g):
+        show  alejandro angry2 at center with moveinleft 
+    if (pElegido == c):
+        show  alba angry at center with moveinleft 
     menu:
         "¡Pero qué dices! ¡Llegaba tarde, como tu y se ha chocado conmigo, nada más!":
             jump sinceroCelos
@@ -960,9 +956,10 @@ label start:
     "Ese momento fue un poco raro, no se que le pasó a [nombrePareja]."
     "Pero el resto de la cita fue super bien, y nos encantó la película, espero que todo siga así de bien."
 
-    scene bg room
+
     #Escena control de ropa
     label ControlRopa:
+    scene bg room
     "(Unos días más tarde ibas a salir de fiesta con tus nuevos amigos)"
     "(Hacía mucho que no salías así que te hacía mucha ilusión y compraste un conjunto nuevo solo para esa noche.)"
 
@@ -1107,17 +1104,19 @@ label start:
     #Cambio de escena
     scene bg black with dissolve
     "(La fiesta estuvo bien, nos echamos unas risas)"
+    label casaSeleccionado:
     "(Pasó una semana bastante rutinaria y aburrida)"
     "(Los padres de [nombrePareja] se han ido un par de dias a la casa antigua por el papeleo de la mudanza.)"
     "(Así que [nombrePareja] te ha invitado a pasar la noche y ver una peli en su nueva casa)"
+    scene bg smallapartment
     if (pElegido == p):
-        show  gabriel smile1    
+        show  gabriel smile1 at center with moveinleft
     if (pElegido == h):
-        show  alicia smile1
+        show  alicia smile1 at center with moveinleft
     if (pElegido == g):
-        show  alejandro smile1
+        show  alejandro smile1 at center with moveinleft
     if (pElegido == c):
-        show  alba smile1
+        show  alba smile1 at center with moveinleft
 
     pElegido "Buenas cielo, ¿cómo está mi niñ[genero]?"
     if (pElegido == p):
@@ -1167,19 +1166,19 @@ label start:
     pElegido "Que luego tus amigos te dicen que el malo soy yo cuando sabes perfectamente que te quiero y que no es así."
     pElegido "Pero bueno, pasa y ahora vemos que hacemos, alguna solucion habrá."
 
-    "(Pasamos al salón)"
+    scene bg salon
     pElegido "Bueno sea como sea estás aquí"
     jump finTerror
 
     label noTerrorHorny:
     if (pElegido == p):
-        show  gabriel angry1    
+        show  gabriel angry1 at center    
     if (pElegido == h):
-        show  alicia angry1
+        show  alicia angry at center  
     if (pElegido == g):
-        show  alejandro angry1
+        show  alejandro angry1 at center  
     if (pElegido == c):
-        show  alba angry1
+        show  alba angry at center  
     if (generoPareja == "a"):
         pElegido "Pero te dije que te vinieras mon[genero]"
         pElegido "Ya sabes que me gusta mucho verte maquillada y guapa, y has venido como si estuvieras de resaca..."
@@ -1193,13 +1192,13 @@ label start:
 
     label finTerror:
     if (pElegido == p):
-        show  gabriel normal    
+        show  gabriel normal at center 
     if (pElegido == h):
-        show  alicia normal
+        show  alicia normal at center 
     if (pElegido == g):
-        show  alejandro normal
+        show  alejandro normal at center 
     if (pElegido == c):
-        show  alba normal
+        show  alba normal at center 
     pElegido "Solo te pedí 1 cosa y no me has hecho ni caso"
     pElegido "Como seas así con tus amigos, normal que estés apartada del grupo"
     if (pElegido == p):
@@ -1216,10 +1215,11 @@ label start:
     scene bg black with dissolve
     "(Al final pasasteis una buena noche, cada vez con más confianza y cariño, más acostumbrados el uno al otro, empezando a desarrollar una rutina de pareja)"
     # Finaliza el juego:
-    
+    scene bg uni with pixellate
     "(Un día por el parque, estabas dando una vuelta para despejarte cuando te encuentras con tu mejor amigo.)"
-    "Hace tiempo que no le ves, ya que últimamente quedas mucho con tu pareja, y ya casi no te encuentras con los demás."
+    "(Hace tiempo que no le ves, ya que últimamente quedas mucho con tu pareja, y ya casi no te encuentras con los demás)"
 
+    show lucas surprised at center with moveinleft
     b "Anda [name], cuánto tiempo, ¿qué tal estás?"
     menu:
         "Bien, ¿cómo estás tú?":
@@ -1227,18 +1227,24 @@ label start:
         "Bueno, voy tirando...":
             jump vasTirando
     label vasBien:
+    show lucas smile2
     b "Yo muy bien, te echaba un poco de menos ya. Últimamente no hay quién quede contigo."
     b "La pasas siempre con [nombrePareja], ya quedará poco para que os caséis eh?"
     b "¿Por qué no tomamos algo y me cuentas qué tal te va?"
     jump finVasBien
     label vasTirando:
+    show lucas smile2
+
     b "Jajajaja nos pasa. Hacía tanto que no quedamos que me tienes desactualizado, si quieres podemos tomar algo y me cuentas."
     jump finVasBien
     label finVasBien:
     y "¿Seguro? Llevábamos tanto sin hablar que pensaba que podrías estar enfadado conmigo."
+    show lucas surprised
     b "¿Yo? Pero qué dices, si me hubiese enfadado contigo te lo habría dicho."
+    show lucas smile1
     b "Entonces, ¿qué me dices? ¿Te apuntas?"
     y "No se, debería consultarlo primero con [nombrePareja], no quiero que se moleste."
+    show lucas angry1
     b "¿Y por qué tendrías que consultarselo, que le importará?"
     menu:
         "Ya sabes como son las parejas, si no luego lo podría malinterpretar y pensar que le estoy engañando":
@@ -1246,18 +1252,23 @@ label start:
         "Bueno para que sepa donde estoy, y que no se preocupe si me distraigo y no le escribo":
             jump protagonistaComprensivaExtra
     label protagonistaComprensiva:
+    show lucas normal
     b "Desde luego que así no son. Pero si somos amigos de toda la vida, ¿qué hay que malinterpretar?"
     jump finProtagonistaComprensiva
     label protagonistaComprensivaExtra:
+    show lucas normal
     b "Pero vamos a ver, podrá vivir sin que le contestes durante 1 hora, digo yo."
     jump finProtagonistaComprensiva
     label finProtagonistaComprensiva:
     y "Ya, supongo que es verdad. Pero aun así..."
+    show lucas angry1
     b "Pero qué pasa, que ahora tienes que consultar con el con quién sales o como."
+    show lucas sad
     b "No me digas que te tiene controlada ¿Es por eso que ya no quedas con nosotros?"
     y "Pero si fuisteis vosotros quiénes dejasteis de invitarnos a los planes."
     b "Dejamos de hacerlo porque ya nunca os uníais, pero no por otra cosa."
     y "Pues [nombrePareja] no piensa lo mismo y yo tampoco."
+    show lucas normal
     b "Ya sabía yo que algo malo estaba ocurriendo cuando quiso controlarte la ropa que ibas a llevar en la fiesta."
     menu:
         "A ver, pero tenía razón, iba vestid[genero] de forma un poco atrevida, normal que desconfiase":
@@ -1265,44 +1276,58 @@ label start:
         "Solo me dio su opinión, además siempre me deja claro que me quiere, ya solo le tengo a [pronombrePareja]":
             jump noIbaAtrevido
     label ibaAtrevido:
+    show lucas sad
     b "Pero no funciona así, si a ti te gustaba, no hay más que hablar, debería confiar más en ti."
     jump finIrAtrevido
     label noIbaAtrevido:
+    show lucas angry1
     b "Eso es mentira, yo siempre he estado aquí para ti."
     jump finIrAtrevido
     label finIrAtrevido:
+    show lucas sad
     b "Mira, siento mucho no haber hecho lo suficiente para que me sientas a tu lado."
+    show lucas normal
     b "Pero tu también tienes que notarlo, ¿no te sientes mal contigo misma?"
     y "..."
+    show lucas smirk
     b "Venga, vamos a tomar algo y lo hablamos con calma."
     y "..."
     "(Justo recibes un mensaje)"
-    pElegido "Oye donde andas cielo, te echo de menos."
-    pElegido "¿Has vuelto a salir a dar una vuelta? Espero que hayas salido normalita, pasame un selfie de donde y como estés ahora mismo cariño"
-    pElegido "¿Se puede saber porque no me contestas? ¿No andarás con alguien?"
+    pElegido "~Oye donde andas cielo, te echo de menos~"
+    pElegido "~¿Has vuelto a salir a dar una vuelta? Espero que hayas salido normalita, pasame un selfie de donde y como estés ahora mismo cariño~"
+    pElegido "~¿Se puede saber porque no me contestas? ¿No andarás con alguien?~"
+    show lucas surprised
     b "¿Te das cuenta no? Tienes que terminar esto, ven vamos a hablar de ello."
-
-
+    jump finalScene
     #Escena final
-
+    
+    label finalScene:
+    show lucas smile1
     b "Por lo que me has contado, me ha quedado clara una cosa"
+    show lucas normal
     b "Y es que esto no es amor, es manipulación." 
 
-    #Flashback imagen 1 ( Eh! ¿Y tú quién eres? ¿Estas ligando con mi noviX?! )
+    hide lucas
+    scene bg black with dissolve
+    show celos at topImages with dissolve
 
     b "Ya no puedes ni ser agradable con otras personas que no sean él sin que se sienta celoso, ¿te parece normal?"
 
     #(Hacer escena acordandote de la fiesta y el momento de juzgar el outfit)
+    show ropa at topImages with pixellate
 
     b "Quiso hacerte sentir mal toda la fiesta por haber tomado una decisión que él no apoya."
     b "Además tú eres dueñ[genero] de tu propio cuerpo, no tu pareja. Tú decides qué ponerte y que no, y a donde ir."
 
     #(Flashback escena peli)
+    show amigos at topImages with pixellate
 
     b "Y por último ponerte en contra de tus propios amigos, y hacerte sentir como que te equivocas en todo momento."
     b "Actitudes así no son por amor, ni por protección."
     b "No normalices esto."
-
-
+    scene bg black with dissolve
+    "Por favor, [name], no normalices estas actitudes"
+    "No importa lo mucho que te quisiera al principio de la relación"
+    "Si te sientes abusada, sal de ahí"
 
     return
