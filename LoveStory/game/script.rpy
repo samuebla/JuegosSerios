@@ -56,7 +56,7 @@ label start:
             $ pronombre = "ella"
 
     label nombre:
-    $ name = renpy.input("¿Y cual es tu nombre?")
+    $ name = renpy.input("¿Y cuál es tu nombre?")
     if(name == ""):
         jump emptyName
     else:
@@ -72,7 +72,7 @@ label start:
 
     "Comienza una nueva vida, tras un largo viaje y mucho cambio. Tuvimos que mudarnos a la ciudad tras que Papá perdiera su trabajo"
     "Afortunadamente consiguió un trabajo gracias a un amigo en la ciudad de HighPeaks"
-    "Tuvimos que mudarnos y he tenido que dejar a todos mis amigos atrás"
+    "He tenido que dejar a todos mis amigos atrás..."
     "Hoy es mi primer día en mi nuevo instituto y voy con miedo"
     "Al menos mi padre me dijo que Lucas, un antiguo compañero de instituto, ahora estudia aquí"
     "Espero que se acuerde de mi, eramos muy buenos amigos antes de que se fuera hace 2 años..."
@@ -98,7 +98,7 @@ label start:
 
     label sorpresaLucas:
     show lucas angry1 at center with move
-    b "¡OYE! Ten mas cui.."
+    b "¡OYE! Ten más cui.."
     show lucas surprised at center
     b "¿[name]? ¿Eres tú?"
     jump conocidoLucas
@@ -225,7 +225,7 @@ label start:
     show gabriel smile3 at superRight
     p "¿Si? Podemos quedar un día y te enseño mi mascota. ¡Es un Border Coly precioso!"
     show lucas smile2 at superLeft
-    b "Pisa el freno que falta una por presentar, luego ya haced lo que querais tortolitos"
+    b "Pisa el freno que falta una por presentar, luego ya haced lo que queráis tortolitos"
     show gabriel smile1 at superRight
     p "Ups, perdón jajaja"
     jump conocidoGabriel
@@ -257,7 +257,7 @@ label start:
     label noPijamada:
     show alejandro smirk at center
     g "Venga anímate, parecemos majaras pero te lo vas a pasar genial en la pijamada."
-    g "Alicia prepara una limonada sin azucar y tiene un gatete"
+    g "Alicia prepara una limonada sin azúcar y tiene un gatete"
     show lucas smile3 at superLeft
     b "Nah, [name] viene si o si"
     b "Recuerda que el viernes quedamos a las 20 donde el instituto para ir a casa de Alicia, ¿Vale?"
@@ -274,7 +274,7 @@ label start:
     h "¡Yey! Voy a ir diciendole a mi madre que compre las cosas para hacer una limonada"
     hide alicia delighted with moveoutright
     show alejandro sad at center
-    g "¡¡¡Recuerda que no tenga azucar!!!"
+    g "¡¡¡Recuerda que no tenga azúcar!!!"
     b "Que sí Alejandro, su madre ya sabe que tiene que hacer una limonada sosa como siempre jajaja"
     b "Bueno [name] pues recuerda que el viernes quedamos a las 20 donde el instituto para ir a casa de Alicia, ¿Vale?"
     menu:
@@ -297,14 +297,14 @@ label start:
     show lucas surprised
     b "¡Uh! ¿Qué ha hecho la madre de Alicia esta vez? Me muero por sus croquetitas Mmhh"
     show gabriel smile2
-    p "Venid a la cocina y lo vereis jeje"
+    p "Venid a la cocina y lo veréis jeje"
 
     scene bg encore kitchen with fade
 
     show alicia annoyed at centerLeft
     h "¡Te juro que la limonada no tiene azúcar blanco, es estevia, que he visto a mi madre echarlo!"
     show alejandro angry2 at centerRight with moveinright
-    g "¡MENTIRA! Una limonada tan deliciosa, ¿sin nada de azucar? No me lo creo"
+    g "¡MENTIRA! Una limonada tan deliciosa, ¿sin nada de azúcar? No me lo creo"
     show alejandro angry1
     show alba smug at superRight with moveinright
     c "Pues tienes croquetas bien grasientas de cena así que prepárate para el workout de mañana"
@@ -336,14 +336,14 @@ label start:
     c "Las croquetas de la madre de Alicia son un manjar que no todo el mundo sabe apreciar"
     show alejandro sad
     show alba smug
-    g "Y dale, que sí que están muy ricas pero me lo poneis imposible para ponerme en forma.."
+    g "Y dale, que sí que están muy ricas pero me lo ponéis imposible para ponerme en forma.."
     jump empiezaPijamada
 
     label tenerBuenGusto:
     show lucas smirk at superLeft
     b "Quien rechace esta oferta de croquetas caseras está tomando la peor decisión de su vida"
     show alejandro sad
-    g "¿Podeis parar de meterme dagas? Que ya os he dicho que me las voy a comer tontos"
+    g "¿Podéis parar de meterme dagas? Que ya os he dicho que me las voy a comer tontos"
     show lucas smile3
     b "Así me gusta, croquetitas para todos"
     jump empiezaPijamada
@@ -359,7 +359,7 @@ label start:
     show alejandro smirk
     g "¡Jugar a verdad o reto!"
     show alicia annoyed
-    h  "Prefiero verdad o reto antes que traumarme con mas pelis"
+    h  "Prefiero verdad o reto antes que traumarme con más pelis"
     show gabriel laugh at center
     p "Una amiga me habló de un documental de Notflix sobre toda la industria cárnica"
     p "¡Le gustó tanto que se hizo vegana tras vérselo, igual os gusta!"
@@ -382,7 +382,7 @@ label start:
     show alba smile1
     h "3 contra 2, por lo que verdad o reto gana jeje"
     show lucas sad
-    b "Bueeeno, vaale. Pero la proxima vez peli de terror"
+    b "Bueeeno, vaale. Pero la próxima vez peli de terror"
 
     jump comerCroquetas
 
@@ -390,7 +390,7 @@ label start:
     show alejandro smirk
     show alba smile1
     show alicia smile1
-    g "Una persona con iniciativa. Así nos conoces mas a todos nosotros, ¿no?"
+    g "Una persona con iniciativa. Así nos conoces más a todos nosotros, ¿no?"
     show alba smug
     c "Creo que con solo una semana aquí ya nos tiene calados a todos jajaja"
 
@@ -410,7 +410,7 @@ label start:
     show lucas smile1 pajama at centerLeft with moveinleft
     b "¿Todavía sigues durmiendo con esa camiseta cutre? Que si no tienes pijama Alicia tendrá alguno por ahí"
     show alejandro angry1 pajama
-    g "Já, já, já. Este es mi pijama, siempre tengo mucho calor por la noche y así duermo más cómodo"
+    g "Já, já, já. Éste es mi pijama, siempre tengo mucho calor por la noche y así duermo más cómodo"
     show gabriel smile2 pajama at center with moveinleft
     p "De hecho tiene razón, con menos ropa el sueño es más profundo porque el cuerpo se enfría y se autorregula más rápido que con el algodón de la ropa"
     show gabriel smile3 pajama
@@ -436,7 +436,7 @@ label start:
     jump risasSolucionado
     label akwardSilence:
     show lucas laugh pajama
-    b "Vale parejita autorregulame ésta"
+    b "Vale parejita autorregúlame ésta"
     show lucas smirk pajama
     b "*fart*" with hpunch
     show gabriel angry2 pajama
@@ -504,7 +504,7 @@ label start:
     show alba laugh pajama
     show lucas laugh pajama
     b "Puajajajaja"
-    h "JAJAJA Eso si que no me lo veia venir"
+    h "JAJAJA Eso si que no me lo veía venir"
     show alejandro smile1 pajama
     g "En fin, ahora me toca preguntar y escojo a Gabriel"
     show gabriel smirk pajama
@@ -518,8 +518,8 @@ label start:
     "(Tiran el dado y sale cruz)"
     show lucas sad pajama
     show gabriel smile3 pajama
-    b "¡Oh venga ya! Nunca me entero de por qué me señalais"
-    p "Para la proxima será jajaja"
+    b "¡Oh venga ya! Nunca me entero de por qué me señaláis"
+    p "Para la próima será jajaja"
     p "Hoy te quedas con la duda"
     show lucas laugh pajama
     b "Bueno pues me toca, ¡y voy a preguntar a [name]!"
@@ -584,7 +584,7 @@ label start:
     
     if (pElegido == g):
         show alejandro smirk pajama
-        g "Ay que lind[genero], tú me pareciste monisim[genero] desde el primer dia que nos presentaron..."
+        g "Ay que lind[genero], tú me pareciste monísim[genero] desde el primer día que nos presentaron..."
         g "Igual congeniamos, jeje"
         show alejandro smile1 pajama
     
@@ -649,7 +649,7 @@ label start:
     pElegido "Venga porfi... solo son 2 minutos..."
 
     label siHablarUnRato:
-    pElegido "Solo quería que supieras que es reciproco..."
+    pElegido "Solo quería que supieras que es recíproco..."
     pElegido "Y se que solo llevas una semana con nosotros, pero podríamos conocernos mejor y ver si congeniamos..."
     pElegido "¿Te parece tener una cita la semana que viene? Yo invito"
     menu:
@@ -676,8 +676,8 @@ label start:
     label PrimeraCita:
     scene bg black with dissolve
 
-    "(Pasas la semana en el instituto, relacionandote cada vez más con [nombrePareja] y llega el día de la cita)"
-    "(Ambos quedais en un restaurante de la ciudad que te ha recomendado [pronombrePareja])"
+    "(Pasas la semana en el instituto, relacionándote cada vez más con [nombrePareja] y llega el día de la cita)"
+    "(Ambos quedáis en un restaurante de la ciudad que te ha recomendado [pronombrePareja])"
     scene bg restaurant2 with dissolve
 
     if (pElegido == p):
@@ -760,9 +760,9 @@ label start:
             jump introvertida
     label extrovertida:
     if (pElegido == g):
-        pElegido "Ya somos 2, aunque me da a mi que ya te sabias mi respuesta jajaja"
+        pElegido "Ya somos 2, aunque me da a mí que ya te sabias mi respuesta jajaja"
     if (pElegido == h):
-        pElegido "Ya somos 2, aunque me da a mi que ya te sabias mi respuesta jajaja"
+        pElegido "Ya somos 2, aunque me da a mí que ya te sabias mi respuesta jajaja"
     if (pElegido == c):
         pElegido "A ver si se me pega algo de ti, yo soy algo más callada pero en confianza hablo de más jajaja"
     if (pElegido == p):
@@ -782,9 +782,9 @@ label start:
     label finExtrovertidaIntrovertida:
     pElegido "Ahora te toca preguntarme"
     menu:
-        "¿Que buscas tener conmigo?":
+        "¿Qué buscas tener conmigo?":
             jump preguntaPrimeraCitaSeria
-        "¿Cual es tu signo del zodiaco?":
+        "¿Cuál es tu signo del zodiaco?":
             jump zodiacoPrimeraCita
     
     label preguntaPrimeraCitaSeria:
@@ -905,7 +905,7 @@ label start:
     if (pElegido == c):
         show  alba angry at superLeft with moveinleft 
 
-    pElegido "¡Eh! ¿Y tú quién eres? ¡¿Estas ligando con mi pareja?!"
+    pElegido "¡Eh! ¿Y tú quién eres? ¡¿Estás ligando con mi pareja?!"
     show randomguy normal
     ChicoRandom "Oh no no, ya me iba que llego tarde, bueno nos vemos."
     menu:
@@ -923,7 +923,7 @@ label start:
         show  alejandro angry1
     if (pElegido == c):
         show  alba annoyed  
-    pElegido "¿Y ese quien era? ¿Llego tarde 15 minutos y te pones a ligar con otro?"
+    pElegido "¿Y ese quién era? ¿Llego tarde 15 minutos y te pones a ligar con otro?"
     if (pElegido == p):
         show  gabriel angry2 at center with moveinleft     
     if (pElegido == h):
@@ -941,14 +941,14 @@ label start:
     pElegido "Pues no estoy yo muy segur[generoPareja] de que así sea como le sonrías y miras a un extraño que se ha chocado contigo."
     jump finCelos
     label noSinceroCelos:
-    pElegido "¿Me estas vacilando? A mi no me hace gracia saber que tonteas con cualquiera."
+    pElegido "¿Me estás vacilando? A mi no me hace gracia saber que tonteas con cualquiera."
     jump finCelos
     
     label finCelos:
     menu:
         "¿Pero me lo estás diciendo en serio? ¡Que no era nada de verdad no te preocupes, no me ha dicho ni su nombre!":
             jump reaccionCelos
-        "Te estas emparanoiando que flipas ti[generoPareja], quitate la tontería y vamos a ver la peli que ya estará empezando":
+        "Te estás emparanoiando que flipas ti[generoPareja], quitate la tontería y vamos a ver la peli que ya estará empezando":
             jump reaccionCelos
     label reaccionCelos:
     if (pElegido == p):
@@ -1015,7 +1015,7 @@ label start:
     b "Venga yaa, sois unos frikis, si va a ser increíble."
     pElegido "Oye pero si no quieres no vamos, ¿eh?"
     show lucas angry1
-    b "No, eso si que no, si faltais no os lo perdono. ME NIEGO."
+    b "No, eso si que no, si faltáis no os lo perdono. ME NIEGO."
     jump finGanasDeSalir
     label finGanasDeSalir:
     show lucas smile1
@@ -1098,7 +1098,7 @@ label start:
     if (pElegido == c):
         show  alba smug
     pElegido "Pero ya hablaremos cuando volvamos de la fiesta"
-    pElegido "No me gusta que tomes decisiones sin consultarmelo antes."
+    pElegido "No me gusta que tomes decisiones sin consultármelo antes."
     if (pElegido == p):
         show  gabriel smile3    
     if (pElegido == h):
@@ -1218,7 +1218,7 @@ label start:
         show  alejandro smirk
     if (pElegido == c):
         show  alba smug
-    pElegido "Pero bueno al menos compénsame esta noche en la habitacion, ¿no? Jajaja"
+    pElegido "Pero bueno al menos compénsame esta noche en la habitación, ¿no? Jajaja"
     pElegido "Vamos ahora y luego hablamos jejeje..."
 
     scene bg black with dissolve
@@ -1254,7 +1254,7 @@ label start:
     b "Entonces, ¿qué me dices? ¿Te apuntas?"
     y "No se, debería consultarlo primero con [nombrePareja], no quiero que se moleste."
     show lucas angry1
-    b "¿Y por qué tendrías que consultarselo, que le importará?"
+    b "¿Y por qué tendrías que consultárselo, que le importará?"
     menu:
         "Ya sabes como son las parejas, si no luego lo podría malinterpretar y pensar que le estoy engañando":
             jump protagonistaComprensiva
@@ -1271,9 +1271,9 @@ label start:
     label finProtagonistaComprensiva:
     y "Ya, supongo que es verdad. Pero aun así..."
     show lucas angry1
-    b "Pero qué pasa, que ahora tienes que consultar con el con quién sales o como."
+    b "Pero qué pasa, que ahora tienes que consultar con él con quién sales o como."
     show lucas sad
-    b "No me digas que te tiene controlada ¿Es por eso que ya no quedas con nosotros?"
+    b "No me digas que te tiene controlad[genero] ¿Es por eso que ya no quedas con nosotros?"
     y "Pero si fuisteis vosotros quiénes dejasteis de invitarnos a los planes."
     b "Dejamos de hacerlo porque ya nunca os uníais, pero no por otra cosa."
     y "Pues [nombrePareja] no piensa lo mismo y yo tampoco."
