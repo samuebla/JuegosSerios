@@ -52,10 +52,11 @@ label start:
             $ genero = "o"
             $ pronombre = "él"
             $ determinante = "el"
+
         "Femeninio(Ella)":
             $ genero = "a"
             $ pronombre = "ella"
-            & determinante "la"
+            $ determinante = "la"
 
     label nombre:
     $ name = renpy.input("¿Y cuál es tu nombre?")
@@ -1234,6 +1235,18 @@ label start:
     label escenaExtra:
     "Esa noche la pasaste en casa de tu pareja, y a la mañana siguiente, siendo un día no lectivo os estabais tranquilizando en el salón."
     "Cuando te llegan varios mensajes de Lucas para preguntarte cómo te encuentras porque hace tiempo que no hablais."
+    
+    scene bg kitchen2 with dissolve
+
+    "*Ring Ring*" with hpunch
+    if (pElegido == p):
+        show  gabriel surprised at center
+    if (pElegido == h):
+        show  alicia shocked at center
+    if (pElegido == g):
+        show  alejandro surprised at center
+    if (pElegido == c):
+        show  alba shocked at center
 
     pElegido "Uy cariño, ¿quién te habla tanto que pareces famosa o algo no?"
     menu:
@@ -1243,9 +1256,25 @@ label start:
             jump noSoyFamosa
     
     label soyFamosa:
+    if (pElegido == p):
+        show  gabriel normal at center
+    if (pElegido == h):
+        show  alicia normal at center
+    if (pElegido == g):
+        show  alejandro normal at center
+    if (pElegido == c):
+        show  alba normal at center
     pElegido "¿Y bien? ¿Quién te habla tanto?"
     jump finFamosa
     label noSoyFamosa:
+    if (pElegido == p):
+        show  gabriel normal at center
+    if (pElegido == h):
+        show  alicia normal at center
+    if (pElegido == g):
+        show  alejandro normal at center
+    if (pElegido == c):
+        show  alba normal at center
     pElegido "¿Ah no? ¿Y entonces qué es?"
     jump finFamosa
     label finFamosa:
@@ -1256,31 +1285,96 @@ label start:
             jump noJuegoMovil
     
     label juegoMovil:
+    if (pElegido == p):
+        show  gabriel smirk at center
+    if (pElegido == h):
+        show  alicia annoyed at center
+    if (pElegido == g):
+        show  alejandro smirk at center
+    if (pElegido == c):
+        show  alba annoyed at center
     pElegido "Bueno, ¿pues si es un juego cutre porque no me dejas probarlo?"
     jump finJuegoMovil
     label noJuegoMovil:
+    if (pElegido == p):
+        show  gabriel smirk at center
+    if (pElegido == h):
+        show  alicia annoyed at center
+    if (pElegido == g):
+        show  alejandro smirk at center
+    if (pElegido == c):
+        show  alba annoyed at center
     pElegido "Pues algo querrá si te está hablando, ¿por qué no me lo enseñas?"
     jump finJuegoMovil
+
     label finJuegoMovil:
     y "Pero vamos a ver, que solo me ha preguntado una cosa, que no quiere nada."
+    if (pElegido == p):
+        show  gabriel angry1 at center
+    if (pElegido == h):
+        show  alicia angry at center
+    if (pElegido == g):
+        show  alejandro angry1 at center
+    if (pElegido == c):
+        show  alba angry at center
     pElegido "Que dejes de mentirme, ¿o es que tienes algo que ocultar en el móvil?"
     pElegido "¿No me estarás engañando?"
     y "¿Que te voy a estar engañando? Si te quiero un monton, yo no te haría eso."
+    if (pElegido == p):
+        show  gabriel angry2 at center
+    if (pElegido == h):
+        show  alicia annoyed at center
+    if (pElegido == g):
+        show  alejandro angry2 at center
+    if (pElegido == c):
+        show  alba annoyed at center 
     pElegido "Pues entonces, ¿por qué no me dejas ver tu teléfono?"
     y "Porque es mío y parece que no confías en mi."
+    if (pElegido == p):
+        show  gabriel sad at center
+    if (pElegido == h):
+        show  alicia sad at center
+    if (pElegido == g):
+        show  alejandro sad at center
+    if (pElegido == c):
+        show  alba sad at center
     pElegido "Es que haces muy difícil el poder confiar en ti."
     pElegido "Si hablas con otros por el movil, y encima ni si quiera me enseñas de qué estás hablando con ellos."
     y "Pero si te digo que no es nada es que no es nada."
+    if (pElegido == p):
+        show  gabriel angry1 at center
+    if (pElegido == h):
+        show  alicia annoyed at center
+    if (pElegido == g):
+        show  alejandro angry1 at center
+    if (pElegido == c):
+        show  alba annoyed at center
     pElegido "¿Ves? A esto me refiero."
     pElegido "Dices que me quieres y que no confío en ti, pero eres tú [determinante] que me ocultas cosas y me tratas de esta manera."
     pElegido "Es que ni me respetas."
     y "¿Pero de qué estás hablando?"
+    if (pElegido == p):
+        show  gabriel angry2 at center
+    if (pElegido == h):
+        show  alicia angry at center
+    if (pElegido == g):
+        show  alejandro angry2 at center
+    if (pElegido == c):
+        show  alba angry at center
     pElegido "Ya me he cansado, trae aqui."
-    "*thumb*"
+    "*thumb*" with hpunch
     y "¿¡Qué haces!? ¡Devuelveme el puto movil!"
     pElegido "¿Ves como me mientes? Sino no te preocuparia tanto. ¿Cuál es tu contraseña?"
     y "Mira, me tienes hart[genero], es 3467."
     pElegido "¿Ves? ¿Por qué te pregunta qué tal? Es que tontea contigo."
+    if (pElegido == p):
+        show  gabriel angry1 at center
+    if (pElegido == h):
+        show  alicia annoyed at center
+    if (pElegido == g):
+        show  alejandro angry1 at center
+    if (pElegido == c):
+        show  alba annoyed at center
     pElegido "Mira, le he bloqueado, la proxima vez que te hable me lo dices."
     pElegido "Y ni se te ocurra cambiar la contraseña, ¿eh? Que no me entere yo que ocultas mas cosas, parece que ya ni me quieres."
     menu:
@@ -1289,10 +1383,19 @@ label start:
         "Content[generoPareja] ya, ¿no? Dame el movil":
             jump relajate
     label relajate:
+    if (pElegido == p):
+        show  gabriel sad at center
+    if (pElegido == h):
+        show  alicia sad at center
+    if (pElegido == g):
+        show  alejandro sad at center
+    if (pElegido == c):
+        show  alba sad at center
     pElegido "Es que asi no hay quien se fíe de ti, tonteas con otros y para ti no es nada y encima me haces [determinantePareja] mal[generoPareja]."
     y "Joder, lo siento. Es que sabia que te ibas a rallar, pero ya está, dejare de hablar con él."
 
     # Pantalla en negro...
+    scene bg black with dissolve
     b "¿[name]?"
     b "¿Te he hecho algo para ofenderte?"
     b "¿Por qué no me respondes los mensajes...?"
