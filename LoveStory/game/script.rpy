@@ -50,10 +50,12 @@ label start:
     menu:
         "Masculino (Él)":
             $ genero = "o"
-            $ pronombre = "el"
+            $ pronombre = "él"
+            $ determinante = "el"
         "Femeninio(Ella)":
             $ genero = "a"
             $ pronombre = "ella"
+            & determinante "la"
 
     label nombre:
     $ name = renpy.input("¿Y cuál es tu nombre?")
@@ -533,24 +535,28 @@ label start:
             $ generoPareja = "a"
             $ pronombrePareja = "ella"
             $ nombrePareja = "Alba"
+            $ determinantePareja = "la"
             jump partnerChosen
         "Alicia":
             $ pElegido = h
             $ generoPareja = "a"
             $ pronombrePareja = "ella"
             $ nombrePareja = "Alicia"
+            $ determinantePareja = "la"
             jump partnerChosen
         "Alejandro":
             $ pElegido = g
             $ generoPareja = "o"
             $ pronombrePareja = "él"
             $ nombrePareja = "Alejandro"
+            $ determinantePareja = "el"
             jump partnerChosen
         "Gabriel":
             $ pElegido = p
             $ generoPareja = "o"
             $ pronombrePareja = "él"
             $ nombrePareja = "Gabriel"
+            $ determinantePareja = "el"
             jump partnerChosen
 
     label partnerChosen:
@@ -1223,6 +1229,78 @@ label start:
 
     scene bg black with dissolve
     "(Al final pasasteis una buena noche, cada vez con más confianza y cariño, más acostumbrados el uno al otro, empezando a desarrollar una rutina de pareja)"
+
+    # Escena extra
+    label escenaExtra:
+    "Esa noche la pasaste en casa de tu pareja, y a la mañana siguiente, siendo un día no lectivo os estabais tranquilizando en el salón."
+    "Cuando te llegan varios mensajes de Lucas para preguntarte cómo te encuentras porque hace tiempo que no hablais."
+
+    pElegido "Uy cariño, ¿quién te habla tanto que pareces famosa o algo no?"
+    menu:
+        "Si, jajajaja, y tanto":
+            jump soyFamosa
+        "Nah, no es nadie":
+            jump noSoyFamosa
+    
+    label soyFamosa:
+    pElegido "¿Y bien? ¿Quién te habla tanto?"
+    jump finFamosa
+    label noSoyFamosa:
+    pElegido "¿Ah no? ¿Y entonces qué es?"
+    jump finFamosa
+    label finFamosa:
+    menu:
+        "Que es un juego cutre de móvil de estos que son muy pesados":
+            jump juegoMovil
+        "A ver, pues es Lucas, pero no quiere nada de verdad.":
+            jump noJuegoMovil
+    
+    label juegoMovil:
+    pElegido "Bueno, ¿pues si es un juego cutre porque no me dejas probarlo?"
+    jump finJuegoMovil
+    label noJuegoMovil:
+    pElegido "Pues algo querrá si te está hablando, ¿por qué no me lo enseñas?"
+    jump finJuegoMovil
+    label finJuegoMovil:
+    y "Pero vamos a ver, que solo me ha preguntado una cosa, que no quiere nada."
+    pElegido "Que dejes de mentirme, ¿o es que tienes algo que ocultar en el móvil?"
+    pElegido "¿No me estarás engañando?"
+    y "¿Que te voy a estar engañando? Si te quiero un monton, yo no te haría eso."
+    pElegido "Pues entonces, ¿por qué no me dejas ver tu teléfono?"
+    y "Porque es mío y parece que no confías en mi."
+    pElegido "Es que haces muy difícil el poder confiar en ti."
+    pElegido "Si hablas con otros por el movil, y encima ni si quiera me enseñas de qué estás hablando con ellos."
+    y "Pero si te digo que no es nada es que no es nada."
+    pElegido "¿Ves? A esto me refiero."
+    pElegido "Dices que me quieres y que no confío en ti, pero eres tú [determinante] que me ocultas cosas y me tratas de esta manera."
+    pElegido "Es que ni me respetas."
+    y "¿Pero de qué estás hablando?"
+    pElegido "Ya me he cansado, trae aqui."
+    "*thumb*"
+    y "¿¡Qué haces!? ¡Devuelveme el puto movil!"
+    pElegido "¿Ves como me mientes? Sino no te preocuparia tanto. ¿Cuál es tu contraseña?"
+    y "Mira, me tienes hart[genero], es 3467."
+    pElegido "¿Ves? ¿Por qué te pregunta qué tal? Es que tontea contigo."
+    pElegido "Mira, le he bloqueado, la proxima vez que te hable me lo dices."
+    pElegido "Y ni se te ocurra cambiar la contraseña, ¿eh? Que no me entere yo que ocultas mas cosas, parece que ya ni me quieres."
+    menu:
+        "Vale pero relajate ya, que te dije que no era nada, y al final no lo era.":
+            jump relajate
+        "Content[generoPareja] ya, ¿no? Dame el movil":
+            jump relajate
+    label relajate:
+    pElegido "Es que asi no hay quien se fíe de ti, tonteas con otros y para ti no es nada y encima me haces [determinantePareja] mal[generoPareja]."
+    y "Joder, lo siento. Es que sabia que te ibas a rallar, pero ya está, dejare de hablar con él."
+
+    # Pantalla en negro...
+    b "¿[name]?"
+    b "¿Te he hecho algo para ofenderte?"
+    b "¿Por qué no me respondes los mensajes...?"
+    b "No te dejes influenciar por nadie, por favor."
+    b "Pensaba que eramos amigos..."
+
+    # Fin escena extra
+
     # Finaliza el juego:
     scene bg uni with pixellate
     "(Un día por el parque, estabas dando una vuelta para despejarte cuando te encuentras con tu mejor amigo.)"
@@ -1303,7 +1381,7 @@ label start:
     y "..."
     "(Justo recibes un mensaje)"
     pElegido "~Oye donde andas cielo, te echo de menos~"
-    pElegido "~¿Has vuelto a salir a dar una vuelta? Espero que hayas salido normalita, pasame un selfie de donde y como estés ahora mismo cariño~"
+    pElegido "~¿Has vuelto a salir a dar una vuelta? Espero que hayas salido normalit[genero], pasame un selfie de donde y como estés ahora mismo cariño~"
     pElegido "~¿Se puede saber porque no me contestas? ¿No andarás con alguien?~"
     show lucas surprised
     b "¿Te das cuenta no? Tienes que terminar esto, ven vamos a hablar de ello."
@@ -1337,6 +1415,6 @@ label start:
     scene bg black with dissolve
     "Por favor, [name], no normalices estas actitudes"
     "No importa lo mucho que te quisiera al principio de la relación"
-    "Si te sientes abusada, sal de ahí"
+    "Si te sientes abusad[genero], sal de ahí"
 
     return
