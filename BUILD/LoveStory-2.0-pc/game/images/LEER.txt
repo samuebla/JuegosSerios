@@ -1,0 +1,4 @@
+El programa hace un "Find" en la carpeta images, así que recordad crear carpetas y dejarlo todo bonito PERO luego no poner el nombre 
+de la carpeta. ¡Solo el de la imagen!
+
+PROHIBIDO CUALQUIER TIPO DE MAYUSCULAS. SI NO TE CARGA LA IMAGEN YA SABES EL POR QUÉ
